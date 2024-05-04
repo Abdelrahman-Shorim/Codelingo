@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "431389313722",
+    "project_id": "code-lingo",
+    "storage_bucket": "code-lingo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431389313722:android:178d58da3bf9e8ff435083",
+        "android_client_info": {
+          "package_name": "com.example.codelingo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzU1b4bEuHvsZsC05NLDJg2G_gAsLn2xY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
