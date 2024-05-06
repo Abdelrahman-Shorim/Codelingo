@@ -3,7 +3,7 @@ import 'package:codelingo/models/PowerUpsModel.dart';
 
 class PowerUpsService {
   final CollectionReference _PowerUpssCollection =
-      FirebaseFirestore.instance.collection('PowerUpss');
+      FirebaseFirestore.instance.collection('PowerUps');
 
   // Add a new PowerUps with automatically generated ID
   Future<void> addPowerUps({required PowerUpsModel PowerUps}) async {
