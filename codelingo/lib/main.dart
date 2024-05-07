@@ -1,5 +1,6 @@
 import 'package:codelingo/firebase_options.dart';
 import 'package:codelingo/models/UserModel.dart';
+import 'package:codelingo/screens/levelslistscreen.dart';
 import 'package:codelingo/services/UserService.dart';
 import 'package:codelingo/screens/userlistscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,7 +26,7 @@ class _TestServiceState extends State<TestService> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: UserListScreen(),
+      home: LevelsScreen(),
     );
   }
 }
