@@ -51,10 +51,10 @@ class _LevelsScreenState extends State<LevelsScreen> {
                       LevelsModel level = _levels[index];
                       return ListTile(
                         title: Text(level.name),
-                        subtitle: level.topicsId.isNotEmpty
+                        subtitle: level.topicsuid.isNotEmpty
                             ? Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: level.topicsId
+                                children: level.topicsuid
                                     .map((topic) => Text(topic))
                                     .toList(),
                               )
@@ -101,7 +101,7 @@ class _LevelsScreenState extends State<LevelsScreen> {
       name: 'Updateeedddd',
       difficulty: 'Easy',
       order: 1,
-      topicsId: predefinedTopicsIds,
+      topicsuid: predefinedTopicsIds,
     );
     // await _levelsService.addLevels(Levels:  predefinedLevel);
     final x = await _levelsService.updateLevelsById(LevelsId: "9P4Ew8suBYcGtHTK5eVe",Levels: predefinedLevel);

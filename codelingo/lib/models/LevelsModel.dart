@@ -1,16 +1,18 @@
+import 'package:flutter/foundation.dart';
+
 class LevelsModel {
   final String uid;
   final String name;
   final String difficulty;
   final int order;
-  final List<String> topicsId;
+  final List<String> topicsuid;
 
   LevelsModel({
     required this.uid,
     required this.name,
     required this.difficulty,
     required this.order,
-    required this.topicsId,
+    required this.topicsuid,
   });
 
   Map<String, dynamic> toJson() {
@@ -19,12 +21,12 @@ class LevelsModel {
       'name': name,
       'difficulty': difficulty,
       'order': order,
-      'topicsId': topicsId,
+      'topicsuid': topicsuid,
     };
   }
 
-  static LevelsModel fromJson(Map<String, dynamic>? data) {
-    var topicsData = data?['topicsId'] as List<dynamic>;
+  factory LevelsModel.fromJson(Map<String, dynamic>? data) {
+    var topicsData = data?['topicsuid'] as List<dynamic>;
     List<String> topicsList = topicsData.map((topicData) {
       return topicData as String;
     }).toList();
@@ -34,7 +36,7 @@ class LevelsModel {
       name: data?['name'],
       difficulty: data?['difficulty'],
       order: data?['order'],
-      topicsId: topicsList,
+      topicsuid: topicsList,
     );
   }
 }
