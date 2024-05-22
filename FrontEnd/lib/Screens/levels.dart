@@ -1,5 +1,5 @@
 import 'dart:math';
-
+import 'package:codelingo/Screens/appbar.dart';
 import 'package:flutter/material.dart';
 
 class Levels extends StatefulWidget {
@@ -11,24 +11,6 @@ class _LevelsState extends State<Levels> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 1.7,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset('images/spain.png', height: 30),
-            appBarItem('images/crown.png', '12', Colors.yellow),
-            appBarItem('images/offFire.png', '0', Colors.grey),
-            appBarItem('images/gem.png', '120', Colors.red),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.directions_bike, color: Colors.blue[400], size: 30),
-        backgroundColor: Colors.white,
-        onPressed: () {},
-      ),
       body: Stack(
         children: [
           ListView(
@@ -87,15 +69,7 @@ class _LevelsState extends State<Levels> {
     );
   }
 
-  Widget appBarItem(String image, String num, Color color) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Image.asset(image, height: 30),
-        Text(num, style: TextStyle(color: color, fontSize: 16)),
-      ],
-    );
-  }
+ 
 
   Widget bonus(){
     return Column(

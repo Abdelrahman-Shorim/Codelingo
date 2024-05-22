@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  percent_indicator: ^4.2.3
 
 dev_dependencies:
   flutter_test:
@@ -18,27 +19,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - images/level.png
-    - images/book.png
-    - images/person.png
-    - images/market.png
-    - images/shield.png
-    - images/level2.png
-    - images/book2.png
-    - images/market2.png
-    - images/shield2.png
-    - images/person2.png
-    - images/spain.png
-    - images/crown.png
-    - images/offFire.png
-    - images/gem.png
-    - images/easter-egg.png
-    - images/message.png
-    - images/airplane.png
-    - images/family.png
-    - images/food.png
-    - images/clothes.png
-    - images/pencil.png
-    - images/man.png
-
-
+    - assets/images/ 
+    
