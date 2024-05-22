@@ -1,18 +1,17 @@
-import 'package:codelingo/Screens/levels.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
+class Nav extends StatefulWidget {
+  const Nav({super.key});
 
   @override
-  _HomeState createState() => _HomeState();
+  State<Nav> createState() => _NavState();
 }
 
-class _HomeState extends State<Home> {
+class _NavState extends State<Nav> {
   int _currentIndex =0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
+    return BottomNavigationBar(
         type: BottomNavigationBarType.fixed, // ayza akhleehom kolohom f nafs el mostawa
         currentIndex: _currentIndex,
         items:[
@@ -27,10 +26,9 @@ class _HomeState extends State<Home> {
             _currentIndex = index;
           });
         },
-      ),
-      body: Levels(),
-    );
+      );
   }
+
    BottomNavigationBarItem navBarItem(String image, String activeImage)
    {
     return BottomNavigationBarItem(
@@ -40,3 +38,4 @@ class _HomeState extends State<Home> {
           );
    }
 }
+  

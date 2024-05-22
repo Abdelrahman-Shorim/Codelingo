@@ -1,5 +1,6 @@
 // import 'package:duolingo/shared/firebase_authentication.dart';
 import 'package:codelingo/Screens/home.dart';
+import 'package:codelingo/Screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:codelingo/Shared/constants.dart';
 class LoginButton extends StatefulWidget {
@@ -51,7 +52,7 @@ class LoginButtonState extends State<LoginButton> {
             onPressed: (){
                Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => Home(),
+              builder: (context) => HomeScreen(),
 
           ));
             },
