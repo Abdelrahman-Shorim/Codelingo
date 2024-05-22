@@ -17,10 +17,10 @@ class _LevelsState extends State<Levels> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.asset('images/spain.png', height: 30),
-            appBarItem('images/crown.png', '12', Colors.yellow),
-            appBarItem('images/offFire.png', '0', Colors.grey),
-            appBarItem('images/gem.png', '120', Colors.red),
+            Image.asset('assets/images/spain.png', height: 30),
+            appBarItem('assets/images/crown.png', '12', Colors.yellow),
+            appBarItem('assets/images/offFire.png', '0', Colors.grey),
+            appBarItem('assets/images/gem.png', '120', Colors.red),
           ],
         ),
       ),
@@ -34,19 +34,19 @@ class _LevelsState extends State<Levels> {
           ListView(
             children: [
               SizedBox(height: 60),
-              lesson('images/easter-egg.png', '2', 'Intro', Colors.blue[100]  ?? Colors.blue),
+              lesson('assets/images/easter-egg.png', '2', 'Intro', Colors.blue[100]  ?? Colors.blue),
               SizedBox(height:15 ,),
 
               twoLessons(
-                lesson('images/message.png', '3', 'Loops', Colors.orange[100] ?? Colors.orange),
-                lesson('images/airplane.png', '3', 'Data Types', Colors.teal[100] ?? Colors.teal ) ,
+                lesson('assets/images/message.png', '3', 'Loops', Colors.orange[100] ?? Colors.orange),
+                lesson('assets/images/airplane.png', '3', 'Data Types', Colors.teal[100] ?? Colors.teal ) ,
                 ),
               
               SizedBox(height:15 ,),
 
               twoLessons(
-                lesson('images/food.png', '1', 'Variables', Colors.green[100] ?? Colors.green),
-                lesson('images/family.png', '4', 'if condition', Colors.red[100] ?? Colors.red ) ,
+                lesson('assets/images/food.png', '1', 'Variables', Colors.green[100] ?? Colors.green),
+                lesson('assets/images/family.png', '4', 'if condition', Colors.red[100] ?? Colors.red ) ,
                 ),
 
               SizedBox(height:15 ,),
@@ -56,11 +56,11 @@ class _LevelsState extends State<Levels> {
               SizedBox(height:15 ,),
               Divider(thickness: 2,),
 
-              lesson('images/clothes.png', '1', 'Palindromes', Colors.deepPurple[200] ?? Colors.deepPurple),
+              lesson('assets/images/clothes.png', '1', 'Palindromes', Colors.deepPurple[200] ?? Colors.deepPurple),
               SizedBox(height:15 ,),
               twoLessons(
-                lesson('images/pencil.png', '3', 'Lists', Colors.pink[200] ?? Colors.pink),
-                lesson('images/man.png', '5', 'Arrays', Colors.red[200] ?? Colors.red ) ,
+                lesson('assets/images/pencil.png', '3', 'Lists', Colors.pink[200] ?? Colors.pink),
+                lesson('assets/images/man.png', '5', 'Arrays', Colors.red[200] ?? Colors.red ) ,
                 ),
 
             ],
@@ -164,7 +164,7 @@ class _LevelsState extends State<Levels> {
               Stack(
                 alignment: Alignment.center,
                 children: [
-                  Image.asset('images/crown.png', height: 29,),
+                  Image.asset('assets/images/crown.png', height: 29,),
                   Text(number, style: TextStyle(color: Colors.deepOrangeAccent),),
                 ],
               
