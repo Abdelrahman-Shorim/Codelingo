@@ -7,7 +7,9 @@ environment:
   sdk: '>=3.2.6 <4.0.0'
 
 dependencies:
+  contained_tab_bar_view: ^0.8.0
   firebase_auth: ^4.17.8
+  firebase_core: ^2.27.0
   flutter:
     sdk: flutter
   google_fonts: ^6.2.0
