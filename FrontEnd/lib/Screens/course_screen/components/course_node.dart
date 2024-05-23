@@ -1,5 +1,6 @@
 import 'package:codelingo/Screens/course_screen/components/course_popup.dart';
-// import 'package:codelingo/Screens/lesson_screen.dart';
+import 'package:codelingo/Screens/lesson_screen/lesson_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -20,11 +21,11 @@ class CourseNode extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            // Navigator.of(context).push(
-            //   MaterialPageRoute(
-            //     builder: (context) => const LessonScreen(),
-            //   ),
-            // );
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const LessonScreen(),
+              ),
+            );
           },
           child: node(),
         ),
