@@ -6,8 +6,8 @@ import 'package:codelingo/Screens/home_screen/components/shop_app_bar.dart';
 import 'package:codelingo/Screens/home_screen/components/stat_app_bar.dart';
 import 'package:codelingo/Screens/home_screen/components/bottom_navigator.dart';
 // import 'package:codelingo/Screens/leaderboard_screen/leaderboard_screen.dart';
-// import 'package:codelingo/Screen/profile_screen/profile_screen.dart';
-// import 'package:codelingo/Sc/reensshop_screen/shop_screen.dart';
+import 'package:codelingo/Screens/profile_screen/profile_screen.dart';
+import 'package:codelingo/Screens/shop_screen/shop_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'components/profile_app_bar.dart';
@@ -31,17 +31,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
     final screens = [
       Home(),
-      // ProfileScreen(),
+      ProfileScreen(),
       // LeaderboardScreen(),
-      // ShopScreen(),
+      ShopScreen(),
       ExploreScreen(),
     ];
 
     final List<PreferredSizeWidget> appBars = [
       StatAppBar(),
-      // ProfileAppBar(),
+      ProfileAppBar(),
       // LeaderboardAppBar(),
-      // ShopAppBar(),
+      ShopAppBar(),
       ExploreAppBar(),
     ];
 
