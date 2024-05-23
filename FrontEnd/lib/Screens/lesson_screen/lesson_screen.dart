@@ -22,30 +22,31 @@ class LessonScreenState extends State<LessonScreen> {
     var lessons = [
       ListLesson(
         'What is the output?',
-        'cout<<"Hello World!"',
+        'cout<<"Hello World!";',
         ['Hello Wrld!.', 'cout<<"Hello World!"', 'Hello World!'],
         correctAnswer: "Hello World!",
         checkButton: bottomButton,
       ),
       ListLesson(
-        'Translate the sentence',
-        'Xin chào.',
-        ['Hello.', 'My name is Duolingo.', 'What is your name?'],
-        correctAnswer: 'Hello.',
+        'What is the datatype of the variable i ? ',
+        ' i=20;',
+        ['Int', 'String', 'Char'],
+        correctAnswer: 'Int',
         checkButton: bottomButton,
       ),
       ListLesson(
-        'Choose an appropriate response',
-        'Bạn tên gì?',
-        ['Tôi tên là Duolingo.', 'Tôi học lớp 2.', 'Tôi không biết.'],
-        correctAnswer: 'Toi',
+        'Is this statement True or False',
+        'int i="20";',
+        ['True', 'False', 'Neither'],
+        correctAnswer: 'False',
         checkButton: bottomButton,
       ),
       ListLesson(
-        'Translate the sentence',
-        'Bye.',
-        ['Tôi ổn.', 'Tạm biệt.', 'Ngủ ngon.'],
-        correctAnswer: 'Tam biet',
+        'What is the output for this code?',
+        'int i=5; \n int y=1 \n int result=i+y; \n cout<<"result = "<<result;',
+
+        ['result = 6', ' result = 5 ', "Can't be determined"],
+        correctAnswer: 'result = 6',
         checkButton: bottomButton,
       ),
     ];
@@ -68,24 +69,29 @@ class LessonScreenState extends State<LessonScreen> {
         margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
         child: ElevatedButton(
           onPressed: () {
-            answer();
+         
             setState(() {
               
                if (percent < 1) {
                 percent += 0.2;
                 index++;
+                answer();
               } 
               else {
+              
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
+                   
                     return dialog('Great job');
                   },
           
                 );
-          
+              answer();
               }
+              
             });
+            
           },
           child: Text(
             title,
