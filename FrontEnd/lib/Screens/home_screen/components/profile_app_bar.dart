@@ -1,3 +1,4 @@
+import 'package:codelingo/Screens/settings_screen/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -26,7 +27,13 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: const Icon(Icons.settings, color: Color(0xFF2B70C9), size: 30),
           tooltip: 'Settings',
-          onPressed: () {},
+          onPressed: () {
+
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const SettingsScreen())
+            );
+
+          },
         ),
       ],
     );

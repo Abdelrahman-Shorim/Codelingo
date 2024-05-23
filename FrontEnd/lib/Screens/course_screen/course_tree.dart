@@ -85,7 +85,7 @@ class CourseTree extends StatelessWidget {
               percent: 0.2,
             ),
             CourseNode(
-              'Introduction to functions',
+              'Introduction \n to \n functions',
               image: 'assets/images/tree.png',
               color: Colors.pink,
             ),

@@ -24,7 +24,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final nameController = TextEditingController();
-  final preferenceController = TextEditingController();
+
 
   // late FirebaseAuthentication auth;
 
@@ -50,12 +50,14 @@ class _SignupScreenState extends State<SignupScreen> {
           children: [
             Form(
               key: formKey,
-              child: InputField(emailController, passwordController,nameController,preferenceController),
+              child: InputField(emailController, passwordController,nameController),
             ),
             
             
-            CreateButton( emailController, passwordController),
+            CreateButton( emailController, passwordController,nameController),
             Container(margin: const EdgeInsets.only(top: 10)),
+            Image.asset('assets/images/Signup-Man.png', height: 250),
+            Container(padding: const EdgeInsets.all(5)),
             bottomDisplay(),
           ],
         ),
