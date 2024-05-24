@@ -42,7 +42,7 @@ class _PreferenceSelectorState extends State<PreferenceSelector> {
         height: 50,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: isSelected ? Colors.blue : Colors.grey,
+          color: isSelected ? logoTextColor : Colors.grey,
           border: Border.all(color: Colors.black, width: 2),
         ),
         alignment: Alignment.center,
