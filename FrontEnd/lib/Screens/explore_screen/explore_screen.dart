@@ -15,28 +15,28 @@ class ExploreScreen extends StatelessWidget {
             
           },
           child: newsBox(
-          'images/news-1.png',
+          'assets/images/news-1.png',
           'Level up with Codelingo!',
           'We have got some amazing strategies to level up your C++ skills and master programming concepts.',
           'May 19'),
           ),
           newsBox(
-          'images/news-2.png',
+          'assets/images/news-2.png',
           'Introducing Codelingo!',
           'Discover how Codelingo helps you learn C++ and become proficient in programming.',
           'May 17'),
           newsBox(
-          'images/news-3.png',
+          'assets/images/news-3.png',
           'Join the Codelingo Team!',
           'Interested in working with us at Codelingo? Hear from one of our developers about their experience.',
           'May 12'),
           newsBox(
-          'images/news-4.png',
+          'assets/images/news-4.png',
           'Code like a Pro!',
           'Explore these handy tips to enhance your C++ coding skills and tackle complex problems like a pro.',
           'May 11'),
           newsBox(
-          'images/news-5.png',
+          'assets/images/news-5.png',
           'What is s trending in C++ learning?',
           'Discover the atest trends in C++ education and find out what is capturing the interest of learners.',
           'May 2'),
