@@ -1,5 +1,57 @@
+import 'package:codelingo/Screens/lesson_screen/lesson_screen.dart';
 import 'package:flutter/material.dart';
 
+class NotificationMenu extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(15.0),
+      height: 300, // Adjust height as needed
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Notifications',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 8),
+          Expanded(
+            child: ListView(
+              children: [
+                ListTile(
+                  leading: Icon(Icons.notification_important),
+                  title: Text('Notification 1'),
+                  subtitle: Text('This is the detail of notification 1.'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.notification_important),
+                  title: Text('Notification 2'),
+                  subtitle: Text('This is the detail of notification 2.'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.notification_important),
+                  title: Text('Notification 3'),
+                  subtitle: Text('This is the detail of notification 3.'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.notification_important),
+                  title: Text('Notification 4'),
+                  subtitle: Text('This is the detail of notification 4.'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.notification_important),
+                  title: Text('Notification 5'),
+                  subtitle: Text('This is the detail of notification 5.'),
+                ),
+                // Add more ListTiles as needed
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 class StatAppBar extends StatelessWidget implements PreferredSizeWidget {
   const StatAppBar({Key? key}) : super(key: key);
 
@@ -8,6 +60,7 @@ class StatAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+  
     return AppBar(
       toolbarHeight: 120,
       backgroundColor: Colors.white,
@@ -15,14 +68,19 @@ class StatAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: flag(),
       title: Row(
         children: [
-          const Padding(padding: EdgeInsets.all(20)),
-          crown(136),
-          const Padding(padding: EdgeInsets.all(20)),
-          streak(31),
+          const Padding(padding: EdgeInsets.all(16)),
+          crown(150),
+          const Padding(padding: EdgeInsets.all(13)),
+          streak(301),
         ],
       ),
       actions: [
+        notification(context),
+         const Padding(
+          padding: EdgeInsets.all(3),
+        ),
         heart(),
+
       ],
     );
   }
@@ -45,12 +103,41 @@ class StatAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
+Widget notification(BuildContext context) {
+    return Row(
+      children: [
+        IconButton(onPressed: ()=>
+        {
+        showModalBottomSheet(
+              context: context,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
+              ),
+              builder: (context) => NotificationMenu(),
+            )
+
+        }, icon: Badge(
+   isLabelVisible: true,
+   label: const Text("2"),
+   offset: const Offset(8, 8),
+   backgroundColor: Colors.red,
+   child:  Image.asset(
+          'assets/icons/notifybell.png',
+          width: 36,
+          height: 36,
+        ),))
+
+       
+       
+      ],
+    );
+  }
   Widget streak(int n) {
     return Row(
       children: [
         Image.asset(
           'assets/images/streak.png',
-          width: 24,
+          width: 20,
         ),
         const Padding(
           padding: EdgeInsets.all(4),
@@ -71,7 +158,7 @@ class StatAppBar extends StatelessWidget implements PreferredSizeWidget {
       children: [
         Image.asset(
           'assets/images/crown.png',
-          width: 30,
+          width: 25,
         ),
         const Padding(
           padding: EdgeInsets.all(4),
@@ -93,7 +180,7 @@ class StatAppBar extends StatelessWidget implements PreferredSizeWidget {
       decoration: BoxDecoration(
         image: const DecorationImage(
           fit: BoxFit.scaleDown,
-          image: AssetImage('assets/images/korea-flag-transparent.png'),
+          image: AssetImage('assets/images/cplus.png'),
           // fit: BoxFit.cover,
         ),
         borderRadius: BorderRadius.circular(5),

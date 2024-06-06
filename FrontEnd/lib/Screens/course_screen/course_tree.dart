@@ -16,6 +16,7 @@ class CourseTree extends StatelessWidget {
           CourseNode(
             'Intro to C++',
             crown: 1,
+            
           ),
           const Padding(padding: EdgeInsets.all(10)),
           DoubleCourseNode(

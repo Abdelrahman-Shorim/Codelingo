@@ -56,7 +56,7 @@ class _SignupScreenState extends State<SignupScreen> {
             
             CreateButton( emailController, passwordController,nameController),
             Container(margin: const EdgeInsets.only(top: 10)),
-            Image.asset('assets/images/Signup-Man.png', height: 250),
+            Image.asset('assets/images/signup-man.png', height: 250),
             Container(padding: const EdgeInsets.all(5)),
             bottomDisplay(),
           ],
