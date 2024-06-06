@@ -7,9 +7,10 @@ class CreateButton extends StatefulWidget {
   // final FirebaseAuthentication auth;
   final TextEditingController emailController;
   final TextEditingController passwordController;
+  final TextEditingController nameController;
 
   // const LoginButton(this.auth, this.emailController, this.passwordController,
-  const CreateButton( this.emailController, this.passwordController,
+  const CreateButton( this.emailController, this.passwordController, this.nameController,
       {Key? key})
       : super(key: key);
 
@@ -66,6 +67,7 @@ class CreateButtonState extends State<CreateButton> {
     String userId = '';
     String email = widget.emailController.text;
     String password = widget.passwordController.text;
+    String name=widget.nameController.text;
   //   widget.auth.login(email, password).then((value) {
   //     print('Login Info: ${email} - ${password}');
   //     if (value == null) {

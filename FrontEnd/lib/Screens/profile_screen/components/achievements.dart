@@ -33,7 +33,7 @@ class Achievements extends StatelessWidget {
                   150,
                   200,
                   2),
-              moreBox('View 7 more'),
+              // moreBox('View 7 more'),
             ],
           ),
         ),
@@ -107,7 +107,7 @@ class Achievements extends StatelessWidget {
       children: [
         Image.asset(
           image,
-          width: 80,
+          width: 75,
         ),
         Positioned(
           bottom: 10,
@@ -126,13 +126,13 @@ class Achievements extends StatelessWidget {
 
   progressBar(int current, int target) {
     return SizedBox(
-      width: 250,
+      width: 230,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         mainAxisSize: MainAxisSize.max,
         children: [
           LinearPercentIndicator(
-            width: 165,
+            width: 145,
             animation: true,
             lineHeight: 15.0,
             padding: const EdgeInsets.all(0),
@@ -161,7 +161,7 @@ class Achievements extends StatelessWidget {
 
   achievementDescription(String name) {
     return SizedBox(
-      width: 250,
+      width: 225,
       child: Text(
         name,
         style: const TextStyle(

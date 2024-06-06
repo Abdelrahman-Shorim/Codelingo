@@ -4,8 +4,8 @@ class InputField extends StatefulWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final TextEditingController nameController;
-  final TextEditingController preferenceController;
-  const InputField(this.emailController, this.passwordController,this.nameController,this.preferenceController, {Key? key}) : super(key: key);
+
+  const InputField(this.emailController, this.passwordController,this.nameController, {Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
