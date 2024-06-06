@@ -13,6 +13,39 @@ class CourseTree extends StatelessWidget {
       child: Column(
         children: [
           const Padding(padding: EdgeInsets.all(10)),
+          // Unit Information
+          Container(
+            padding: const EdgeInsets.all(16.0),
+            color: Colors.deepPurple[300],
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Unit 1',
+                      style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      'Introduction to C++',
+                      style: TextStyle(color: Colors.white, fontSize: 14),
+                    ),
+                  ],
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  child: const Icon(Icons.list, color: Colors.white),
+                ),
+              ],
+            ),
+          ),
+          const Padding(padding: EdgeInsets.all(10)),
+          // Course Nodes
           CourseNode(
             'Intro to C++',
             crown: 1,

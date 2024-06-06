@@ -26,7 +26,9 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: const Icon(Icons.settings, color: Color(0xFF2B70C9), size: 30),
           tooltip: 'Settings',
-          onPressed: () {},
+          onPressed: () {
+            
+          },
         ),
       ],
     );
