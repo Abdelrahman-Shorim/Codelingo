@@ -38,6 +38,9 @@ dependencies:
   firebase_core: ^2.30.1
   cloud_firestore: ^4.17.2
   image_picker: ^1.1.2
+  envied: ^0.5.4+1
+  dart_openai: ^5.1.0
+  http: ^1.2.1
 
 dev_dependencies:
   flutter_test:
@@ -49,7 +52,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
-
+  envied_generator: ^0.5.4+1
+  build_runner: ^2.4.11
+  qr_flutter: ^4.1.0
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

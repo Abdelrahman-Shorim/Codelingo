@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:codelingo/models/LevelsModel.dart';
 import 'package:codelingo/models/QuestionsModel.dart';
-import 'package:codelingo/models/UserModel.dart';
 
 class QuestionsService {
   final CollectionReference _QuestionssCollection =

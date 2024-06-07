@@ -21,8 +21,8 @@ class _HistoryFormState extends State<HistoryForm> {
           data: ThemeData.light().copyWith(
             primaryColor: Colors.green,
             hintColor: Colors.green,
-            colorScheme: ColorScheme.light(primary: Colors.green),
-            buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
+            colorScheme: const ColorScheme.light(primary: Colors.green),
+            buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
           ),
           child: child!,
         );
@@ -40,7 +40,7 @@ class _HistoryFormState extends State<HistoryForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "History Form",
           style: TextStyle(color: Colors.black),
         ),
@@ -53,26 +53,26 @@ class _HistoryFormState extends State<HistoryForm> {
             children: <Widget>[
               Text(
                 "Picked date: $_dateTime",
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               MaterialButton(
                 onPressed: _showDatePicker,
-                child: Padding(
+                color: Colors.green,
+                child: const Padding(
                   padding: EdgeInsets.all(10),
                   child: Text(
                     "Pick Date",
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
-                color: Colors.green,
               ),
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Solution",
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
                   enabledBorder: UnderlineInputBorder(
@@ -82,19 +82,19 @@ class _HistoryFormState extends State<HistoryForm> {
                 ),
                 cursorColor: Colors.green,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               MaterialButton(
                 onPressed: () {},
-                child: Padding(
+                color: Colors.green,
+                child: const Padding(
                   padding: EdgeInsets.all(10),
                   child: Text(
                     "Submit",
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
-                color: Colors.green,
               ),
             ],
           ),

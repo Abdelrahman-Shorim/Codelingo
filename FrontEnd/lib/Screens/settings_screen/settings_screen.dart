@@ -1,4 +1,3 @@
-import 'package:codelingo/Screens/settings_screen/components/input_field.dart';
 import 'package:codelingo/Screens/settings_screen/components/settings_app_bar.dart';
 
 import 'package:flutter/material.dart';
@@ -38,7 +37,7 @@ class SettingsScreenState extends State<SettingsScreen> {
               onPressed: () {
                 showModalBottomSheet(
                   context: context,
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
                   ),
                   builder: (context) => AvatarMenu(
@@ -77,7 +76,7 @@ class CustomAvatarWidget extends StatelessWidget {
   final String imagePath;
   final VoidCallback onPressed;
 
-  const CustomAvatarWidget({required this.imagePath, required this.onPressed});
+  const CustomAvatarWidget({super.key, required this.imagePath, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +88,7 @@ class CustomAvatarWidget extends StatelessWidget {
           Container(
             width: 100,
             height: 100,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: Color(0xFF2AE69B),
             ),
@@ -97,8 +96,8 @@ class CustomAvatarWidget extends StatelessWidget {
               child: CircleAvatar(
                 radius: 40,
                 backgroundImage: imagePath.isEmpty ? null : AssetImage(imagePath),
-                backgroundColor: Color.fromARGB(255, 177, 255, 224),
-                child: imagePath.isEmpty ? Icon(Icons.person, size: 40, color: Colors.white) : null,
+                backgroundColor: const Color.fromARGB(255, 177, 255, 224),
+                child: imagePath.isEmpty ? const Icon(Icons.person, size: 40, color: Colors.white) : null,
               ),
             ),
           ),
@@ -108,7 +107,7 @@ class CustomAvatarWidget extends StatelessWidget {
             child: Container(
               width: 24,
               height: 24,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.black,
               ),
@@ -136,16 +135,16 @@ class AvatarMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(5.0),
       height: 700,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Avatars',
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Expanded(
             child: GridView.count(
               crossAxisCount: 4,
@@ -169,7 +168,7 @@ class AvatarMenu extends StatelessWidget {
         elevation: 4,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: Image.asset(
             imagePath,
             fit: BoxFit.cover,
@@ -216,7 +215,7 @@ class RoundedInputField extends StatelessWidget {
           ),
           filled: true,
           fillColor: Colors.grey.shade200,
-          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         ),
       ),
     );
@@ -267,22 +266,22 @@ class InputField extends StatelessWidget {
             controller: passwordController,
             obscureText: true,
           ),
-          SizedBox(height: 10,),
-          Align(
+          const SizedBox(height: 10,),
+          const Align(
             alignment: Alignment.center,
             child: Text(
               'Duration Preference',
               style: TextStyle(fontSize: 16),
             ),
           ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
           PreferenceSelector(
             preference: preference,
             onPreferenceSelected: (newPreference) {
               preferenceController.text = newPreference;
             },
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
@@ -293,14 +292,14 @@ class InputField extends StatelessWidget {
                 print("Password: ${passwordController.text}");
                 print("Preference: ${preferenceController.text}");
               },
-              child: Text("Save", style: TextStyle(color: Colors.white)),
               style: ElevatedButton.styleFrom(
-                primary: Color(0xFF2AE69B),
-                padding: EdgeInsets.symmetric(vertical: 15),
+                backgroundColor: const Color(0xFF2AE69B),
+                padding: const EdgeInsets.symmetric(vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
               ),
+              child: const Text("Save", style: TextStyle(color: Colors.white)),
             ),
           ),
         ],
@@ -351,7 +350,7 @@ class _PreferenceSelectorState extends State<PreferenceSelector> {
         height: 50,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: isSelected ? Color(0xFF2AE69B) : Colors.grey,
+          color: isSelected ? const Color(0xFF2AE69B) : Colors.grey,
           border: Border.all(color: Colors.white, width: 2),
         ),
         alignment: Alignment.center,

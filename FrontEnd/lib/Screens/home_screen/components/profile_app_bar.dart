@@ -25,7 +25,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
           icon: const Icon(Icons.ios_share, color: Color(0xFF2B70C9), size: 30),
           tooltip: 'Share',
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>  QRScannerPage()));
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>  const QRScannerPage()));
           },
         ),
         IconButton(

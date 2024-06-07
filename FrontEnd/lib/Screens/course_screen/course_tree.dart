@@ -8,9 +8,9 @@ class CourseTree extends StatelessWidget {
 
   // Define a list of colors for unit containers
   static const List<Color>  unitColors = [
-    const Color.fromARGB(255, 42, 230, 155),
-    const Color.fromARGB(255, 255, 175, 197),
-    const Color.fromARGB(255, 224, 71, 158),
+    Color.fromARGB(255, 42, 230, 155),
+    Color.fromARGB(255, 255, 175, 197),
+    Color.fromARGB(255, 224, 71, 158),
     Colors.yellow,
     Colors.orange,
     Colors.purple,

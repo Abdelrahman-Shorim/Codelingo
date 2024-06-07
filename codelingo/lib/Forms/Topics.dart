@@ -12,7 +12,7 @@ class _TopicsFormState extends State<TopicsForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Topics Form",
           style: TextStyle(color: Colors.black),
         ),
@@ -26,7 +26,7 @@ class _TopicsFormState extends State<TopicsForm> {
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Name",
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
                   enabledBorder: UnderlineInputBorder(
@@ -45,7 +45,7 @@ class _TopicsFormState extends State<TopicsForm> {
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Description",
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
                   enabledBorder: UnderlineInputBorder(
@@ -61,19 +61,19 @@ class _TopicsFormState extends State<TopicsForm> {
                 },
                 cursorColor: Colors.green,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               MaterialButton(
                 onPressed: () {},
-                child: Padding(
+                color: Colors.green,
+                child: const Padding(
                   padding: EdgeInsets.all(10),
                   child: Text(
                     "Submit",
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
-                color: Colors.green,
               ),
             ],
           ),

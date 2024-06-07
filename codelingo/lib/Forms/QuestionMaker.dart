@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 
 class QuestionMaker extends StatefulWidget {
+  const QuestionMaker({super.key});
+
   @override
   _QuestionMakerState createState() => _QuestionMakerState();
 }
@@ -30,7 +32,7 @@ class _QuestionMakerState extends State<QuestionMaker> {
       builder: (context) => CupertinoActionSheet(
         actions: [
           CupertinoActionSheetAction(
-            child: Text('Pick Image'),
+            child: const Text('Pick Image'),
             onPressed: () {
               Navigator.of(context).pop();
               getImageFromGallery();
@@ -46,29 +48,29 @@ class _QuestionMakerState extends State<QuestionMaker> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('Questions Maker'),
+        title: const Text('Questions Maker'),
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               TextButton(
-                child: Text('Select Image'),
                 onPressed: showOptions,
+                child: const Text('Select Image'),
               ),
               Container(
                 child: Center(
                   child: _image == null
-                      ? Text('No Image selected')
+                      ? const Text('No Image selected')
                       : Image.file(_image),
                 ),
               ),
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Text Question",
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
                   enabledBorder: UnderlineInputBorder(
@@ -81,7 +83,7 @@ class _QuestionMakerState extends State<QuestionMaker> {
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Answer 1",
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
                   enabledBorder: UnderlineInputBorder(
@@ -97,13 +99,13 @@ class _QuestionMakerState extends State<QuestionMaker> {
                 },
                 cursorColor: Colors.green,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Answer 2",
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
                   enabledBorder: UnderlineInputBorder(
@@ -119,13 +121,13 @@ class _QuestionMakerState extends State<QuestionMaker> {
                 },
                 cursorColor: Colors.green,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Answer 3",
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
                   enabledBorder: UnderlineInputBorder(
@@ -141,13 +143,13 @@ class _QuestionMakerState extends State<QuestionMaker> {
                 },
                 cursorColor: Colors.green,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Solution",
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
                   enabledBorder: UnderlineInputBorder(
@@ -163,10 +165,10 @@ class _QuestionMakerState extends State<QuestionMaker> {
                 },
                 cursorColor: Colors.green,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text('Unit', textAlign: TextAlign.left),
+              const Text('Unit', textAlign: TextAlign.left),
               SizedBox(
                 width: 100,
                 child: DropdownButton<String>(
@@ -186,19 +188,19 @@ class _QuestionMakerState extends State<QuestionMaker> {
                           selectedLesson = item;
                         })),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               MaterialButton(
                 onPressed: () {},
-                child: Padding(
+                color: Colors.green,
+                child: const Padding(
                   padding: EdgeInsets.all(10),
                   child: Text(
                     "Submit",
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
-                color: Colors.green,
               ),
             ],
           ),

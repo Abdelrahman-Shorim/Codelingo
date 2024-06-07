@@ -1,4 +1,3 @@
-import 'package:codelingo/Screens/settings_screen/settings_screen.dart';
 // import 'package:codelingo/qrscanner.dart';
 import 'package:flutter/material.dart';
 
