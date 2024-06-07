@@ -1,5 +1,6 @@
 import 'package:codelingo/Screens/settings_screen/components/input_field.dart';
-import 'package:codelingo/Screens/home_screen/components/profile_app_bar.dart';
+import 'package:codelingo/Screens/settings_screen/components/settings_app_bar.dart';
+
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -26,7 +27,7 @@ class SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const ProfileAppBar(),
+      appBar: const SettingsAppBar(),
       body: Container(
         margin: const EdgeInsets.only(bottom: 10),
         child: Column(
