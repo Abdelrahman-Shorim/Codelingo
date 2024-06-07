@@ -2,22 +2,24 @@ import 'package:codelingo/Screens/settings_screen/components/input_field.dart';
 import 'package:codelingo/Screens/home_screen/components/profile_app_bar.dart';
 import 'package:flutter/material.dart';
 class AvatarMenu extends StatelessWidget {
+  const AvatarMenu({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(5.0),
       height: 400, // Adjust height as needed
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Avatars',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Expanded(
             child: ListView(
-              children: [
+              children: const [
                 ListTile(
                   leading: CircleAvatar(
                     backgroundImage: AssetImage('assets/avatars/ann.png'),
@@ -96,13 +98,13 @@ class SettingsScreenState extends State<SettingsScreen> {
           onPressed: () {
             showModalBottomSheet(
               context: context,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
               ),
-              builder: (context) => AvatarMenu(),
+              builder: (context) => const AvatarMenu(),
             );
           },
-          icon:  CustomAvatarWidget(),
+          icon:  const CustomAvatarWidget(),
         ),
       
         
@@ -116,6 +118,8 @@ class SettingsScreenState extends State<SettingsScreen> {
 
 
 class CustomAvatarWidget extends StatelessWidget {
+  const CustomAvatarWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -128,7 +132,7 @@ class CustomAvatarWidget extends StatelessWidget {
             shape: BoxShape.circle,
             color: Colors.grey.shade800,
           ),
-          child: Center(
+          child: const Center(
             child: CircleAvatar(
               radius: 40,
               backgroundImage: AssetImage('assets/images/abdelrahman.png'), // Replace with your avatar image asset
@@ -141,7 +145,7 @@ class CustomAvatarWidget extends StatelessWidget {
           child: Container(
             width: 24,
             height: 24,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.black,
             ),

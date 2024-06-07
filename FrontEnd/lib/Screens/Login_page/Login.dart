@@ -47,23 +47,23 @@ child:Padding(padding: EdgeInsets.symmetric(vertical: 32.0),
             ),
 
          Padding(
-          padding: EdgeInsets.symmetric(horizontal:16.0),
+          padding: const EdgeInsets.symmetric(horizontal:16.0),
           child: TextField(decoration:InputDecoration(
             filled:true,
             fillColor:textFieldColor,
             hintText: "Username or Email",
-            hintStyle:TextStyle (color:Colors.white54,
+            hintStyle:const TextStyle (color:Colors.white54,
           
           )),),
         ),
         const SizedBox(height:8),
          Padding(
-          padding: EdgeInsets.symmetric(horizontal:16.0),
+          padding: const EdgeInsets.symmetric(horizontal:16.0),
           child: TextField(decoration:InputDecoration(
             filled:true,
             fillColor:textFieldColor,
             hintText: "Password",
-            hintStyle:TextStyle (color:Colors.white54,
+            hintStyle:const TextStyle (color:Colors.white54,
           
           )),),
         ),
@@ -91,7 +91,7 @@ child:Padding(padding: EdgeInsets.symmetric(vertical: 32.0),
               ),
               onPressed: (){
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (ctx)=>Home())
+                  MaterialPageRoute(builder: (ctx)=>const Home())
                 );
               }, child: const Text("Login",
               style: TextStyle(color:Colors.white),)),

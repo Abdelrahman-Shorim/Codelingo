@@ -14,7 +14,7 @@ class CoursePopup extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
       ),
-      child: Container(
+      child: const SizedBox(
         width: 270,
         height: 220,
         child: Column(

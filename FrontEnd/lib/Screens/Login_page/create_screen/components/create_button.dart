@@ -1,5 +1,4 @@
 // import 'package:duolingo/shared/firebase_authentication.dart';
-import 'package:codelingo/Screens/home.dart';
 import 'package:codelingo/Screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:codelingo/Shared/constants.dart';
@@ -35,16 +34,8 @@ class CreateButtonState extends State<CreateButton> {
           margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
           padding: const EdgeInsets.only(bottom: 2),
           child: ElevatedButton(
-            child: const Text(
-              'CREATE ACCOUNT',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
             style: ElevatedButton.styleFrom(
-              primary: logoTextColor,
+              backgroundColor: logoTextColor,
               elevation: 5,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -53,10 +44,18 @@ class CreateButtonState extends State<CreateButton> {
             onPressed: (){
               Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) =>  HomeScreen(),
+              builder: (context) =>  const HomeScreen(),
 
           ));
             },
+            child: const Text(
+              'CREATE ACCOUNT',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ),
       ],

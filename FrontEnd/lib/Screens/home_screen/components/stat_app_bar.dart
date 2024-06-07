@@ -1,23 +1,24 @@
-import 'package:codelingo/Screens/lesson_screen/lesson_screen.dart';
 import 'package:flutter/material.dart';
 
 class NotificationMenu extends StatelessWidget {
+  const NotificationMenu({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(15.0),
       height: 300, // Adjust height as needed
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Notifications',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Expanded(
             child: ListView(
-              children: [
+              children: const [
                 ListTile(
                   leading: Icon(Icons.notification_important),
                   title: Text('Notification 1'),
@@ -110,10 +111,10 @@ Widget notification(BuildContext context) {
         {
         showModalBottomSheet(
               context: context,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
               ),
-              builder: (context) => NotificationMenu(),
+              builder: (context) => const NotificationMenu(),
             )
 
         }, icon: Badge(

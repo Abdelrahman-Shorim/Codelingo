@@ -2,6 +2,8 @@ import 'package:codelingo/Screens/levels.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
 
   @override
   _HomeState createState() => _HomeState();
@@ -28,7 +30,7 @@ class _HomeState extends State<Home> {
           });
         },
       ),
-      body: Levels(),
+      body: const Levels(),
     );
   }
    BottomNavigationBarItem navBarItem(String image, String activeImage)

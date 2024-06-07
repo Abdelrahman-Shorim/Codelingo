@@ -26,6 +26,12 @@ class GoogleButtonState extends State<GoogleButton> {
             border: Border.all(width: 3, color: Colors.grey.shade400)),
         child: ElevatedButton(
           onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            elevation: 5,
+            shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          ),
           // onPressed: googlePressed,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -42,12 +48,6 @@ class GoogleButtonState extends State<GoogleButton> {
                     fontWeight: FontWeight.bold),
               ),
             ],
-          ),
-          style: ElevatedButton.styleFrom(
-            primary: Colors.white,
-            elevation: 5,
-            shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
         ),
       ),

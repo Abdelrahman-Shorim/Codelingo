@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 
 import 'components/course_node.dart';
 import 'components/double_course_node.dart';
-import 'components/triple_course_node.dart';
 
 class CourseTree extends StatelessWidget {
   // const CourseTree({Key? key}) : super(key: key);
 
   // Define a list of colors for unit containers
-  final List<Color> unitColors = [
-    Color.fromARGB(255, 42, 230, 155),
-    Color.fromARGB(255, 255, 175, 197),
-    Color.fromARGB(255, 224, 71, 158),
+  static const List<Color>  unitColors = [
+    const Color.fromARGB(255, 42, 230, 155),
+    const Color.fromARGB(255, 255, 175, 197),
+    const Color.fromARGB(255, 224, 71, 158),
     Colors.yellow,
     Colors.orange,
     Colors.purple,
@@ -21,6 +20,8 @@ class CourseTree extends StatelessWidget {
     Colors.cyan,
     Colors.lime,
   ];
+
+  const CourseTree({super.key});
 
   // Build function for each unit
   Widget buildUnit(BuildContext context, String unitName, String unitDescription, List<String> nodeTitles, Color color) {

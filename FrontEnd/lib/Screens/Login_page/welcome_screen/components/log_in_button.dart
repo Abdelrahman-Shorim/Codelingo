@@ -23,16 +23,16 @@ class LogInButton extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const LoginScreen()),
           );
         },
-        child: const Text(
-          'I ALREADY HAVE AN ACCOUNT',
-          style: TextStyle(
-              color:const Color(0xFF2AE69B) , fontSize: 18, fontWeight: FontWeight.bold),
-        ),
         style: ElevatedButton.styleFrom(
-          primary: Colors.white,
+          backgroundColor: Colors.white,
           elevation: 5,
           shape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        ),
+        child: const Text(
+          'I ALREADY HAVE AN ACCOUNT',
+          style: TextStyle(
+              color:Color(0xFF2AE69B) , fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ),
     );

@@ -1,4 +1,3 @@
-import 'package:codelingo/Screens/home_screen/components/profile_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class FriendSuggestions extends StatelessWidget {
@@ -62,19 +61,19 @@ class FriendSuggestions extends StatelessWidget {
       // padding: const EdgeInsets.only(bottom: 2),
       child: ElevatedButton(
         onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color(0xFF1CB0F6),
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+        ),
         child: const Text(
           'FOLLOW',
           style: TextStyle(
             color: Colors.white,
             fontSize: 15.5,
             fontWeight: FontWeight.bold,
-          ),
-        ),
-        style: ElevatedButton.styleFrom(
-          primary: const Color(0xFF1CB0F6),
-          elevation: 5,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),
           ),
         ),
       ),

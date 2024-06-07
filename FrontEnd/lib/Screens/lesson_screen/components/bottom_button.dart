@@ -18,19 +18,19 @@ class BottomButton extends StatelessWidget {
             Navigator.pop(context);
          
           },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF58CC02),
+            elevation: 5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
           child: Text(
             title,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 20,
               fontWeight: FontWeight.bold,
-            ),
-          ),
-          style: ElevatedButton.styleFrom(
-            primary: const Color(0xFF58CC02),
-            elevation: 5,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
             ),
           ),
         ),

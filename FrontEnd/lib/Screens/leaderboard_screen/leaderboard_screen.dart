@@ -17,7 +17,7 @@ class LeaderboardScreen extends StatelessWidget {
       'cyan.png', 'yellow.png'];
 
     var names = List<String>.generate(30, (i) => nameList[random.nextInt(nameList.length)]);
-    var images = List<String>.generate(30, (i) => 'assets/images/' + imageList[random.nextInt(imageList.length)]);
+    var images = List<String>.generate(30, (i) => 'assets/images/${imageList[random.nextInt(imageList.length)]}');
 
     return ListView.builder(
       itemCount: 30,
