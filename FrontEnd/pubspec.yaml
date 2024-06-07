@@ -15,7 +15,7 @@ dependencies:
   google_fonts: ^6.2.0
   google_sign_in: ^6.2.1
   percent_indicator: ^4.2.3
-
+  qr_code_scanner: ^1.0.0 # Add this line for QR code scanner
 
 dev_dependencies:
   flutter_test:
