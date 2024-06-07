@@ -86,7 +86,7 @@ class LeaderboardScreen extends StatelessWidget {
         style: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: Color(0xFF58CC02),
+          color: Color(0xFF2AE69B),
         ),
       ),
     );
