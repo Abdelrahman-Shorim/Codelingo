@@ -41,7 +41,7 @@ class LessonAppBar extends StatelessWidget implements PreferredSizeWidget {
       percent: percent,
       barRadius: const Radius.circular(10),
       backgroundColor: const Color(0xFFE5E5E5),
-      progressColor: const Color(0xFF58CC02),
+      progressColor: const Color(0xFF2AE69B),
     );
   }
 }

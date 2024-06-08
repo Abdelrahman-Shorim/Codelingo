@@ -1,6 +1,7 @@
 import 'package:codelingo/Screens/lesson_screen/components/bottom_button.dart';
 import 'package:codelingo/Screens/lesson_screen/components/lesson_app_bar.dart';
 import 'package:codelingo/Screens/lesson_screen/components/list_lesson.dart';
+import 'package:codelingo/Screens/lesson_screen/lesson_complete.dart'; // Import the LessonCompleteScreen
 import 'package:flutter/material.dart';
 
 class LessonScreen extends StatefulWidget {
@@ -68,32 +69,21 @@ class LessonScreenState extends State<LessonScreen> {
         margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
         child: ElevatedButton(
           onPressed: () {
-         
             setState(() {
-              
-               if (percent < 1) {
+              if (percent < 1) {
                 percent += 0.2;
                 index++;
                 answer();
-              } 
-              else {
-              
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                   
-                    return dialog('Great job');
-                  },
-          
+              } else {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LessonCompleteScreen()),
                 );
-              answer();
               }
-              
             });
-            
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF58CC02),
+            backgroundColor: const Color(0xFF2AE69B),
             elevation: 5,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
@@ -140,7 +130,7 @@ class LessonScreenState extends State<LessonScreen> {
           style: const TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF43C000),
+            color: Color(0xFF2AE69B),
           ),
           child: Text(text),
         ),
