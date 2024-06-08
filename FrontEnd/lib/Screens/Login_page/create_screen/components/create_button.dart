@@ -1,4 +1,5 @@
 // import 'package:duolingo/shared/firebase_authentication.dart';
+import 'package:codelingo/Screens/Select_Course_Screen/Course_Select.dart';
 import 'package:codelingo/Screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:codelingo/Shared/constants.dart';
@@ -44,7 +45,7 @@ class CreateButtonState extends State<CreateButton> {
             onPressed: (){
               Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) =>  const HomeScreen(),
+              builder: (context) =>   CourseSelectTypePage(),
 
           ));
             },
