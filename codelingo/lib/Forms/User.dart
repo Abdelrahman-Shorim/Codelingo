@@ -12,7 +12,7 @@ class _UserFormState extends State<UserForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Levels Form",
           style: TextStyle(color: Colors.black),
         ),
@@ -26,7 +26,7 @@ class _UserFormState extends State<UserForm> {
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Name",
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
                   enabledBorder: UnderlineInputBorder(
@@ -45,7 +45,7 @@ class _UserFormState extends State<UserForm> {
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Age",
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
                   enabledBorder: UnderlineInputBorder(
@@ -61,19 +61,19 @@ class _UserFormState extends State<UserForm> {
                 },
                 cursorColor: Colors.green,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               MaterialButton(
                 onPressed: () {},
-                child: Padding(
+                color: Colors.green,
+                child: const Padding(
                   padding: EdgeInsets.all(10),
                   child: Text(
                     "Submit",
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
-                color: Colors.green,
               ),
             ],
           ),

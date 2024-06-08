@@ -1,4 +1,6 @@
 import 'package:codelingo/Screens/settings_screen/settings_screen.dart';
+import 'package:codelingo/qr_code_scanner.dart';
+// import 'package:codelingo/qrscanner.dart';
 import 'package:flutter/material.dart';
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -22,7 +24,9 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: const Icon(Icons.ios_share, color: Color(0xFF2B70C9), size: 30),
           tooltip: 'Share',
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>  const QRScannerPage()));
+          },
         ),
         IconButton(
           icon: const Icon(Icons.settings, color: Color(0xFF2B70C9), size: 30),

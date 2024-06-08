@@ -79,7 +79,7 @@ class Friends extends StatelessWidget {
       child: Row(
         children: [
           avatar(image),
-          Padding(padding: const EdgeInsets.all(5)),
+          const Padding(padding: EdgeInsets.all(5)),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,

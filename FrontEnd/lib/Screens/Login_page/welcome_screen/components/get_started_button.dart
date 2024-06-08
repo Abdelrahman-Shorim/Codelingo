@@ -1,6 +1,4 @@
-import 'package:codelingo/Screens/Login_page/Login.dart';
 import 'package:codelingo/Screens/Login_page/create_screen/Sign_Up.dart';
-import 'package:codelingo/Screens/Login_page/login_screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:codelingo/Shared/constants.dart';
 class GetStartedButton extends StatelessWidget {
@@ -22,19 +20,19 @@ class GetStartedButton extends StatelessWidget {
 
           ));
         },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: logoTextColor,
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
         child: const Text(
           'GET STARTED',
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
             fontWeight: FontWeight.bold,
-          ),
-        ),
-        style: ElevatedButton.styleFrom(
-          primary: logoTextColor,
-          elevation: 5,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
           ),
         ),
       ),

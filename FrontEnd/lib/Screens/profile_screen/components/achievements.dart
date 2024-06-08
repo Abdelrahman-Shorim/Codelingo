@@ -80,8 +80,8 @@ class Achievements extends StatelessWidget {
           color: const Color(0xFFE5E5E5),
         ),
       ),
-      child: Row(
-        children: const [
+      child: const Row(
+        children: [
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
@@ -143,7 +143,7 @@ class Achievements extends StatelessWidget {
             progressColor: const Color(0xFFFFDE00),
           ),
           // const Padding(padding: EdgeInsets.only(right: 25)),
-          Spacer(),
+          const Spacer(),
           Text(
             '$current/$target',
             style: const TextStyle(
@@ -153,7 +153,7 @@ class Achievements extends StatelessWidget {
             ),
             textAlign: TextAlign.right,
           ),
-          Padding(padding: EdgeInsets.only(left: 15))
+          const Padding(padding: EdgeInsets.only(left: 15))
         ],
       ),
     );

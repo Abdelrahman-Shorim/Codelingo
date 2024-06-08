@@ -5,7 +5,6 @@ import 'components/google_button.dart';
 // import 'package:duolingo/views/login_screen/components/google_button.dart';
 import 'components/create_button.dart';
 import 'components/policy_text.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'components/app_bar.dart';
 import 'components/input_field.dart';
@@ -43,6 +42,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: const LoginAppBar(),
       body: Container(
         margin: const EdgeInsets.only(bottom: 10),
@@ -66,7 +66,7 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   bottomDisplay() {
-    return Expanded(
+    return const Expanded(
       child: Align(
         alignment: FractionalOffset.bottomCenter,
         child: Column(

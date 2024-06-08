@@ -1,4 +1,3 @@
-import 'package:codelingo/Screens/course_screen/components/course_popup.dart';
 import 'package:codelingo/Screens/lesson_screen/lesson_screen.dart';
 
 import 'package:flutter/material.dart';

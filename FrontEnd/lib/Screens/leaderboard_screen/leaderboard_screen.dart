@@ -12,12 +12,12 @@ class LeaderboardScreen extends StatelessWidget {
     var ranks = List<int>.generate(30, (i) => i + 1);
     Random random = Random();
     var xps = List<int>.generate(30, (i) => random.nextInt(1000));
-    var nameList = ['White', 'Red', 'Blue', 'Yellow', 'Cyan', 'Black', 'Pink', 'Purple'];
-    var imageList = ['white.png', 'profile.jpg', 'green.png',
-      'cyan.png', 'yellow.png'];
+    var nameList = ['Habiba', 'Shehab', 'Mina', 'Abdelrahman', 'Jasmine', 'Ahmed', 'Mohamed', 'Salem'];
+    var imageList = ['avatar1.png', 'avatar35.png', 'avatar2.png',
+      'avatar41.png', 'avatar7.png'];
 
     var names = List<String>.generate(30, (i) => nameList[random.nextInt(nameList.length)]);
-    var images = List<String>.generate(30, (i) => 'assets/images/' + imageList[random.nextInt(imageList.length)]);
+    var images = List<String>.generate(30, (i) => 'assets/images/${imageList[random.nextInt(imageList.length)]}');
 
     return ListView.builder(
       itemCount: 30,
@@ -86,7 +86,7 @@ class LeaderboardScreen extends StatelessWidget {
         style: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: Color(0xFF58CC02),
+          color: Color(0xFF2AE69B),
         ),
       ),
     );

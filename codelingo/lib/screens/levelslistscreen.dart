@@ -1,10 +1,11 @@
 import 'package:codelingo/models/LevelsModel.dart';
 import 'package:flutter/material.dart';
 // import 'package:codelingo/models/LevelsModel.dart';
-import 'package:codelingo/models/TopicsModel.dart';
 import 'package:codelingo/services/LevelsService.dart';
 
 class LevelsScreen extends StatefulWidget {
+  const LevelsScreen({super.key});
+
   @override
   _LevelsScreenState createState() => _LevelsScreenState();
 }
@@ -19,10 +20,10 @@ class _LevelsScreenState extends State<LevelsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Levels'),
+        title: const Text('Levels'),
         actions: [
           IconButton(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             onPressed: () {
               // Add predefined data to levels
               _addPredefinedData();
@@ -42,9 +43,9 @@ class _LevelsScreenState extends State<LevelsScreen> {
           // return
           Center(
         child: _isLoading
-            ? CircularProgressIndicator()
+            ? const CircularProgressIndicator()
             : _levels.isEmpty
-                ? Text('No Levels yet')
+                ? const Text('No Levels yet')
                 : ListView.builder(
                     itemCount: _levels.length,
                     itemBuilder: (context, index) {
@@ -58,14 +59,14 @@ class _LevelsScreenState extends State<LevelsScreen> {
                                     .map((topic) => Text(topic))
                                     .toList(),
                               )
-                            : Text('No topics'),
+                            : const Text('No topics'),
                       );
                     },
                   ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _fetchUsers,
-        child: Icon(Icons.refresh),
+        child: const Icon(Icons.refresh),
       ),
       // }
       // },

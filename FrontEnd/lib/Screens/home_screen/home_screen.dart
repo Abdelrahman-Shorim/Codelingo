@@ -30,19 +30,19 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
 
     final screens = [
-      Home(), 
-      ProfileScreen(),
-      LeaderboardScreen(),
-      ShopScreen(),
-      ExploreScreen(),
+      const Home(), 
+      const ProfileScreen(),
+      const LeaderboardScreen(),
+      const ShopScreen(),
+      const ExploreScreen(),
     ];
 
     final List<PreferredSizeWidget> appBars = [
-      StatAppBar(),
-      ProfileAppBar(),
-      LeaderboardAppBar(),
-      ShopAppBar(),
-      ExploreAppBar(),
+      const StatAppBar(),
+      const ProfileAppBar(),
+      const LeaderboardAppBar(),
+      const ShopAppBar(),
+      const ExploreAppBar(),
     ];
 
     return Scaffold(

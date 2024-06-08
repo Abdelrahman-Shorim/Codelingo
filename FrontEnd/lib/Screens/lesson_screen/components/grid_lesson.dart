@@ -1,5 +1,3 @@
-import 'package:codelingo/Screens/lesson_screen/components/bottom_button.dart';
-import 'package:codelingo/Screens/lesson_screen/components/stage_changed.dart';
 import 'package:flutter/material.dart';
 
 class GridLesson extends StatelessWidget {

@@ -25,14 +25,14 @@ class LeaderboardAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   leagues() {
-    ScrollController _controller =
+    ScrollController controller =
         ScrollController(initialScrollOffset: 89.8 * 4.4);
 
     return SizedBox(
       height: 100,
       child: ListView(
         // itemExtent: 80,
-        controller: _controller,
+        controller: controller,
         // shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         children: [
