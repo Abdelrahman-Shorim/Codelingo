@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
             // LoginButton(auth, emailController, passwordController),
             LoginButton( emailController, passwordController),
             Container(margin: const EdgeInsets.only(top: 10)),
-            Image.asset('assets/images/Login-Woman.jpg', height: 250),
+            Image.asset('assets/images/Login-Woman.png', height: 250),
             Container(padding: const EdgeInsets.all(5)),
             // ForgotPassword(),
             bottomDisplay(),

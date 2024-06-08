@@ -1,4 +1,6 @@
 // import 'package:duolingo/shared/firebase_authentication.dart';
+import 'package:codelingo/Screens/Instructor_view/Home_Screen_Instructor/home.dart';
+import 'package:codelingo/Screens/Select_Course_Screen/Course_Select.dart';
 import 'package:codelingo/Screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:codelingo/Shared/constants.dart';
@@ -41,11 +43,7 @@ class LoginButtonState extends State<LoginButton> {
               ),
             ),
             onPressed: (){
-               Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const HomeScreen(),
-
-          ));
+               loginPressed(context);
             },
             child: const Text(
               'SIGN IN',
@@ -61,10 +59,28 @@ class LoginButtonState extends State<LoginButton> {
     );
   }
 
-  loginPressed() {
+  loginPressed(BuildContext context) {
     String userId = '';
     String email = widget.emailController.text;
     String password = widget.passwordController.text;
+    if(email=="Dr")
+    {
+      print("Doctor");
+      Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const InstructorViewHome()
+
+          ));
+    }
+    else
+    {
+      Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) =>  CourseSelectTypePage(),
+
+          ));
+    }
+
   //   widget.auth.login(email, password).then((value) {
   //     print('Login Info: ${email} - ${password}');
   //     if (value == null) {
