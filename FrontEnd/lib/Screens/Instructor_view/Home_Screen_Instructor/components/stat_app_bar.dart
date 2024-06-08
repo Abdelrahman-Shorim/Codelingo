@@ -53,6 +53,7 @@ class NotificationMenu extends StatelessWidget {
     );
   }
 }
+
 class StatAppBar extends StatelessWidget implements PreferredSizeWidget {
   const StatAppBar({Key? key}) : super(key: key);
 
@@ -61,7 +62,6 @@ class StatAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-  
     return AppBar(
       toolbarHeight: 120,
       backgroundColor: Colors.white,
@@ -70,107 +70,43 @@ class StatAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Row(
         children: [
           const Padding(padding: EdgeInsets.all(16)),
-          crown(150),
           const Padding(padding: EdgeInsets.all(13)),
-          streak(301),
         ],
       ),
       actions: [
         notification(context),
-         const Padding(
+        const Padding(
           padding: EdgeInsets.all(3),
         ),
-        heart(),
-
       ],
     );
   }
 
-  Widget heart() {
+  Widget notification(BuildContext context) {
     return Row(
       children: [
-        Image.asset(
-          'assets/images/heart.png',
-          width: 36,
-        ),
-        const Padding(
-          padding: EdgeInsets.all(2),
-        ),
-        Image.asset('assets/images/infinity.png', width: 20),
-        const Padding(
-          padding: EdgeInsets.all(5),
-        ),
-      ],
-    );
-  }
-
-Widget notification(BuildContext context) {
-    return Row(
-      children: [
-        IconButton(onPressed: ()=>
-        {
-        showModalBottomSheet(
-              context: context,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
+        IconButton(
+            onPressed: () => {
+                  showModalBottomSheet(
+                    context: context,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(16.0)),
+                    ),
+                    builder: (context) => const NotificationMenu(),
+                  )
+                },
+            icon: Badge(
+              isLabelVisible: true,
+              label: const Text("2"),
+              offset: const Offset(8, 8),
+              backgroundColor: Colors.red,
+              child: Image.asset(
+                'assets/icons/notifybell.png',
+                width: 36,
+                height: 36,
               ),
-              builder: (context) => const NotificationMenu(),
-            )
-
-        }, icon: Badge(
-   isLabelVisible: true,
-   label: const Text("2"),
-   offset: const Offset(8, 8),
-   backgroundColor: Colors.red,
-   child:  Image.asset(
-          'assets/icons/notifybell.png',
-          width: 36,
-          height: 36,
-        ),))
-
-       
-       
-      ],
-    );
-  }
-  Widget streak(int n) {
-    return Row(
-      children: [
-        Image.asset(
-          'assets/images/streak.png',
-          width: 20,
-        ),
-        const Padding(
-          padding: EdgeInsets.all(4),
-        ),
-        Text(
-          '$n',
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Color(0xFFFF9600),
-          ),
-        )
-      ],
-    );
-  }
-
-  Widget crown(int n) {
-    return Row(
-      children: [
-        Image.asset(
-          'assets/images/crown.png',
-          width: 25,
-        ),
-        const Padding(
-          padding: EdgeInsets.all(4),
-        ),
-        Text(
-          '$n',
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Color(0xFFFFC800),
-          ),
-        )
+            ))
       ],
     );
   }
