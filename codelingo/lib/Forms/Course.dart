@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class LevelsForm extends StatefulWidget {
-  const LevelsForm({super.key});
+class CourseForm extends StatefulWidget {
+  const CourseForm({super.key});
 
   @override
-  State<LevelsForm> createState() => _LevelsFormState();
+  State<CourseForm> createState() => _CourseFormState();
 }
 
-class _LevelsFormState extends State<LevelsForm> {
+class _CourseFormState extends State<CourseForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Levels Form",
+          "Add course",
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
@@ -44,7 +44,7 @@ class _LevelsFormState extends State<LevelsForm> {
               ),
               TextFormField(
                 decoration: InputDecoration(
-                  hintText: "Difficulty",
+                  hintText: "Description",
                   focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
@@ -55,34 +55,18 @@ class _LevelsFormState extends State<LevelsForm> {
                 ),
                 validator: (value) {
                   if (value!.trim().isEmpty) {
-                    return "Difficulty required";
+                    return "Description required";
                   }
                   return null;
                 },
                 cursorColor: Colors.green,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: "Order",
-                  focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.green),
-                  ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors.green.withOpacity(0.5), width: 1.0),
-                  ),
-                ),
-                validator: (value) {
-                  if (value!.trim().isEmpty) {
-                    return "Order required";
-                  }
-                  return null;
-                },
-                cursorColor: Colors.green,
+              const SizedBox(
+                height: 20,
               ),
               TextFormField(
                 decoration: InputDecoration(
-                  hintText: "Level",
+                  hintText: "Number of Units",
                   focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
@@ -93,7 +77,7 @@ class _LevelsFormState extends State<LevelsForm> {
                 ),
                 validator: (value) {
                   if (value!.trim().isEmpty) {
-                    return "Order required";
+                    return "Number of units required";
                   }
                   return null;
                 },
