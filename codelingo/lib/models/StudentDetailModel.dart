@@ -13,6 +13,7 @@ class StudentDetailModel {
   String streakcounter;
   DateTime? streakdate;
 
+
   
 
   StudentDetailModel(

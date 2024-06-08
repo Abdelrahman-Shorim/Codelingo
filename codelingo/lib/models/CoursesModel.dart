@@ -5,12 +5,14 @@ class CoursesModel {
   String numberofunits;
   String description;
 
+
   CoursesModel(
       {required this.uid,
       required this.coursename,
       required this.instructoruid,
       required this.numberofunits,
       required this.description});
+
 
   Map<String, dynamic> toJson() {
     return {
