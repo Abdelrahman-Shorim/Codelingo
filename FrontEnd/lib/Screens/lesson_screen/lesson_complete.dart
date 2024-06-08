@@ -1,4 +1,7 @@
+import 'package:codelingo/Screens/course_screen/course_tree.dart';
+import 'package:codelingo/Screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
+
 
 class LessonCompleteScreen extends StatelessWidget {
   @override
@@ -13,7 +16,7 @@ class LessonCompleteScreen extends StatelessWidget {
             Text(
               'Lesson complete!',
               style: TextStyle(
-                color: Color(0xFFF8E71C),
+                color: Color(0xFF2AE69B),
                 fontSize: 36,
                 fontWeight: FontWeight.bold,
               ),
@@ -40,9 +43,15 @@ class LessonCompleteScreen extends StatelessWidget {
             xpRow('COMBO BONUS XP', 4),
             SizedBox(height: 30),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()), 
+                  (route) => false,
+                );
+              },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF3B8AF7),
+                backgroundColor: Color(0xFF2AE69B),
                 padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
@@ -107,5 +116,3 @@ class LessonCompleteScreen extends StatelessWidget {
     );
   }
 }
-
-
