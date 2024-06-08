@@ -94,17 +94,20 @@ class UserService {
       throw Exception("Failed to login: $e");
     }
   }
-
   Future<String?> checkadminorStudent(var uid) async {
-    try{
-    var selecteduser = await getUserById(uid);
-
-    var usertype = await _userTypesService.getUserTypeById(UserTypeId: selecteduser!.usertypeuid);
-
-    return usertype?.type;
+    var selecteduser;
+    try {
+      selecteduser = await getUserById(uid);
+    } catch (error) {
+      print("Error getting user data: $error");
     }
-    catch(error){
-      print("ServiceHere= $error");
+    try {
+      var usertype = await _userTypesService.getUserTypeById(
+          UserTypeId: selecteduser!.usertypeuid);
+
+      return usertype?.type;
+    } catch (e) {
+      print("Error getting usertype data: $e");
     }
   }
 
@@ -122,7 +125,7 @@ class UserService {
           usertypeuid: studentType.uid,
           iconurl: '',
         );
-        await _usersCollection.add(studentdata.toJson());
+        await _usersCollection.doc(userid).set(studentdata.toJson());
       }
     } catch (e) {
       throw Exception("Failed to add StudentDetail: $e");

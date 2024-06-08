@@ -14,7 +14,7 @@ class ExploreAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 1.5,
       centerTitle: true,
       title: const Text(
-        'News Feed',
+        'Topics Form',
         style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
       ),
     );

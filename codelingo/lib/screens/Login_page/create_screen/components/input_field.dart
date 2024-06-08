@@ -5,7 +5,7 @@ class InputField extends StatefulWidget {
   final TextEditingController passwordController;
   final TextEditingController nameController;
 
-  const InputField(this.emailController, this.passwordController,this.nameController, {Key? key}) : super(key: key);
+  const InputField(this.emailController, this.passwordController, this.nameController, {Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -23,11 +23,31 @@ class InputFieldState extends State<InputField> {
       child: Column(
         children: [
           accountField(),
-          nameField(),  
+          nameField(),
           passwordField(),
         ],
       ),
     );
+  }
+
+  String? validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Email is required';
+    }
+    // Basic email validation
+    String pattern = r'^[^@]+@[^@]+\.[^@]+';
+    RegExp regex = RegExp(pattern);
+    if (!regex.hasMatch(value)) {
+      return 'Enter a valid email address';
+    }
+    return null;
+  }
+
+  String? validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Password is required';
+    }
+    return null;
   }
 
   accountField() {
@@ -43,10 +63,7 @@ class InputFieldState extends State<InputField> {
         ),
         hintText: 'Email',
       ),
-      // validator: validateEmail,
-      onChanged: (value) {
-        // bloc.changeEmail(value);
-      },
+      validator: validateEmail,
     );
   }
 
@@ -62,10 +79,6 @@ class InputFieldState extends State<InputField> {
         ),
         hintText: 'Name',
       ),
-      // validator: validateEmail,
-      onChanged: (value) {
-        // bloc.changeEmail(value);
-      },
     );
   }
 
@@ -92,7 +105,7 @@ class InputFieldState extends State<InputField> {
         ),
         hintText: 'Password',
       ),
-      // validator: validatePassword,
+      validator: validatePassword,
     );
   }
 }

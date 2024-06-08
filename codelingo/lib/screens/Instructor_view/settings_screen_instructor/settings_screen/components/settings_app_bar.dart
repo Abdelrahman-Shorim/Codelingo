@@ -18,7 +18,20 @@ class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
         'Profile',
         style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
       ),
-      
+       actions: <Widget>[
+       
+        IconButton(
+          icon: const Icon(Icons.add_box, color: Color(0xFF2B70C9), size: 30),
+          tooltip: 'Add a course',
+          onPressed: () {
+
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const SettingsScreen())
+            );
+
+          },
+        ),
+       ]
     );
   }
 }

@@ -50,11 +50,16 @@ class _SignupScreenState extends State<SignupScreen> {
           children: [
             Form(
               key: formKey,
-              child: InputField(emailController, passwordController,nameController),
+              child: Column(
+                children: [
+                  InputField(emailController, passwordController,nameController),
+                  CreateButton( emailController, passwordController,nameController),
+                ],
+              ),
             ),
             
             
-            CreateButton( emailController, passwordController,nameController),
+            
             Container(margin: const EdgeInsets.only(top: 10)),
             Image.asset('assets/images/signup-man.png', height: 250),
             Container(padding: const EdgeInsets.all(5)),

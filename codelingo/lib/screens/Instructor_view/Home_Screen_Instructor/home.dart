@@ -9,6 +9,7 @@ import 'package:codelingo/Screens/Instructor_view/Home_Screen_Instructor/compone
 import 'package:codelingo/Screens/Instructor_view/Home_Screen_Instructor/components/stat_app_bar.dart';
 import 'package:codelingo/Screens/Instructor_view/profile_instructor/profile_screen/profile_screen.dart';
 import 'package:codelingo/Screens/explore_screen/explore_screen.dart';
+import 'package:codelingo/screens/Instructor_view/Forms/Topics.dart';
 import 'package:flutter/material.dart';
 
 class InstructorViewHome extends StatefulWidget {
@@ -31,7 +32,7 @@ class _InstructorViewHomeState extends State<InstructorViewHome> {
       const QuestionMaker(), 
       const ProfileScreen(),
       const LevelsForm(),
-      const ExploreScreen(),
+      const TopicsForm(),
     ];
 
     final List<PreferredSizeWidget> appBars = [
