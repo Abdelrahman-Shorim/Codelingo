@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:codelingo/models/StudentDetailModel.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:uuid/uuid.dart';
 
 class StudentDetailService {
   final CollectionReference _StudentDetailsCollection =
@@ -11,30 +12,24 @@ class StudentDetailService {
     return  getStudentDetailById(StudentDetailId: currentUser!.uid);
   }
 
-  // Add a new StudentDetail with automatically generated ID
-  Future<void> addStudentDetail(
-      {required StudentDetailModel StudentDetail}) async {
+  Future<void> addStudentDetail({required StudentDetailModel StudentDetail}) async {
     try {
-      await _StudentDetailsCollection.add(StudentDetail.toJson());
+        await _StudentDetailsCollection.doc(StudentDetail.uid).set(StudentDetail.toJson());
     } catch (e) {
       throw Exception("Failed to add StudentDetail: $e");
     }
   }
 
-  // Update an existing StudentDetail by document ID
   Future<void> updateStudentDetailById(
-      {required String StudentDetailId,
-      required StudentDetailModel StudentDetail}) async {
+      {required String StudentDetailId, required StudentDetailModel StudentDetail}) async {
     try {
-      await _StudentDetailsCollection.doc(StudentDetailId)
-          .update(StudentDetail.toJson());
+      await _StudentDetailsCollection.doc(StudentDetailId).update(StudentDetail.toJson());
     } catch (e) {
       throw Exception("Failed to update StudentDetail: $e");
     }
   }
 
-  // Get all StudentDetails
-  Future<List<StudentDetailModel>> getAllStudentDetails() async {
+  Future<List<StudentDetailModel>> getAllStudentDetail() async {
     try {
       var querySnapshot = await _StudentDetailsCollection.get();
       return querySnapshot.docs
@@ -42,19 +37,15 @@ class StudentDetailService {
               StudentDetailModel.fromJson(doc.data() as Map<String, dynamic>))
           .toList();
     } catch (e) {
-      throw Exception("Failed to get all StudentDetails: $e");
+      throw Exception("Failed to get all StudentDetail: $e");
     }
   }
 
-  // Get a StudentDetail by document ID
-  Future<StudentDetailModel?> getStudentDetailById(
-      {required String StudentDetailId}) async {
+  Future<StudentDetailModel?> getStudentDetailById({required String StudentDetailId}) async {
     try {
-      var StudentDetailDoc =
-          await _StudentDetailsCollection.doc(StudentDetailId).get();
+      var StudentDetailDoc = await _StudentDetailsCollection.doc(StudentDetailId).get();
       if (StudentDetailDoc.exists) {
-        return StudentDetailModel.fromJson(
-            StudentDetailDoc.data() as Map<String, dynamic>);
+        return StudentDetailModel.fromJson(StudentDetailDoc.data() as Map<String, dynamic>);
       } else {
         return null;
       }
@@ -63,9 +54,7 @@ class StudentDetailService {
     }
   }
 
-  // Delete a StudentDetail by document ID
-  Future<void> deleteStudentDetailById(
-      {required String StudentDetailId}) async {
+  Future<void> deleteStudentDetailById({required String StudentDetailId}) async {
     try {
       await _StudentDetailsCollection.doc(StudentDetailId).delete();
     } catch (e) {

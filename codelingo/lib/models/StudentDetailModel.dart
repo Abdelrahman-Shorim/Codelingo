@@ -2,16 +2,16 @@ class StudentDetailModel {
   String uid;
   String useruid;
   // course id : course score
-  List<Map<String, String>> enrolledcourses;
+  List<Map<String, String>>? enrolledcourses;
   String preferedLearningTime;
-  List<Map<String, String>> powerups;
+  List<Map<String, String>>? powerups;
   int pocket;
   // course : solved
-  List<Map<String, String>> totalsolvedquestions;
+  List<Map<String, String>>? totalsolvedquestions;
   // course : topic
-  List<Map<String, String>> learnedTopics;
+  List<Map<String, String>>? learnedTopics;
   String streakcounter;
-  DateTime streakdate;
+  DateTime? streakdate;
 
   
 

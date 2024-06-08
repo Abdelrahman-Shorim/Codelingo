@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:codelingo/models/QuestionsModel.dart';
@@ -11,15 +12,23 @@ class QuestionsService {
   final CollectionReference _QuestionssCollection =
       FirebaseFirestore.instance.collection('Questions');
 
-  Future<List<QuestionsModel>> getLevelQuestionsForUser({required UnitLevelModel unitlevel}) async {
+  Future<List<QuestionsModel>> getLevelQuestionsForUser(
+      {required UnitLevelModel unitlevel}) async {
     try {
-      var querySnapshot = await _QuestionssCollection.get();
-      return querySnapshot.docs
-          .map((doc) => QuestionsModel.fromJson(doc.data() as Map<String, dynamic>))
-          .where((element) => false)
-          .toList();
+      var allQuestions = await getAllQuestionss();
+
+      var filteredQuestions = allQuestions.where((question) {
+        return question.topicsuid
+            .any((topic) => unitlevel.leveltopics.contains(topic));
+      }).toList();
+
+      filteredQuestions.shuffle(Random());
+
+      var limitedQuestions = filteredQuestions.take(10).toList();
+
+      return limitedQuestions;
     } catch (e) {
-      throw Exception("Failed to get all Questionss: $e");
+      throw Exception("Failed to get questions for unit level: $e");
     }
   }
 
