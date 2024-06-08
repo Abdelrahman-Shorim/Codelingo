@@ -2,12 +2,12 @@ class StudentDetailModel {
   String uid;
   String useruid;
   // course id : course score
-  List<Map<String, String>>? enrolledcourses;
+  List<Map<String, int>>? enrolledcourses;
   String preferedLearningTime;
-  List<Map<String, String>>? powerups;
+  List<Map<String, int>>? powerups;
   int pocket;
   // course : solved
-  List<Map<String, String>>? totalsolvedquestions;
+  List<Map<String, int>>? totalsolvedquestions;
   // course : topic
   List<Map<String, String>>? learnedTopics;
   String streakcounter;
@@ -47,19 +47,19 @@ class StudentDetailModel {
   // Create a Person object from a map
   factory StudentDetailModel.fromJson(Map<String, dynamic> map) {
 
-    var enrolledcoursesData = map?['enrolledcourses'] as List<Map<String, String>>;
-    List<Map<String, String>> enrolledcoursesList = enrolledcoursesData.map((topicData) {
-      return topicData as Map<String, String>;
+    var enrolledcoursesData = map?['enrolledcourses'] as List<Map<String, int>>;
+    List<Map<String, int>> enrolledcoursesList = enrolledcoursesData.map((topicData) {
+      return topicData as Map<String, int>;
     }).toList();
 
-    var powerupsData = map?['powerups'] as List<Map<String, String>>;
-    List<Map<String, String>> powerupsList = powerupsData.map((topicData) {
-      return topicData as Map<String, String>;
+    var powerupsData = map?['powerups'] as List<Map<String, int>>;
+    List<Map<String, int>> powerupsList = powerupsData.map((topicData) {
+      return topicData as Map<String, int>;
     }).toList();
 
-    var totalsolvedquestionsData = map?['totalsolvedquestions'] as List<Map<String, String>>;
-    List<Map<String, String>> totalsolvedquestionsList = totalsolvedquestionsData.map((topicData) {
-      return topicData as Map<String, String>;
+    var totalsolvedquestionsData = map?['totalsolvedquestions'] as List<Map<String, int>>;
+    List<Map<String, int>> totalsolvedquestionsList = totalsolvedquestionsData.map((topicData) {
+      return topicData as Map<String, int>;
     }).toList();
 
     var learnedTopicsData = map?['learnedTopics'] as List<Map<String, String>>;
