@@ -2,7 +2,6 @@ class TopicsModel {
   String uid;
   String name;
   String description;
-// add icon if needed
 
 
   TopicsModel({ required this.uid, required this.name, required this.description});

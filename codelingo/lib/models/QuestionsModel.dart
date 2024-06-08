@@ -1,29 +1,36 @@
 class QuestionsModel {
   String uid;
+  bool isImage;
   String question;
   List<String> choices;
   String difficulty;
   List<String> topicsuid;
-// add icon if needed
+  String courseuid;
 
-
-  QuestionsModel({ required this.uid, required this.question, required this.choices, required this.difficulty, 
-  required this.topicsuid});
+  QuestionsModel(
+      {required this.uid,
+      required this.isImage,
+      required this.question,
+      required this.choices,
+      required this.difficulty,
+      required this.topicsuid,
+      required this.courseuid});
 
   // Convert object to a map
   Map<String, dynamic> toJson() {
     return {
-      'uid':uid,
+      'uid': uid,
+      'isImage': isImage,
       'question': question,
       'choices': choices,
-      'difficulty':difficulty,
-      'topicsuid':topicsuid,
+      'difficulty': difficulty,
+      'topicsuid': topicsuid,
+      'courseuid': courseuid,
     };
   }
 
   // Create an object from a map
   factory QuestionsModel.fromJson(Map<String, dynamic>? map) {
-
     var choicesdata = map?['choices'] as List<dynamic>;
     List<String> choiceslist = choicesdata.map((topicData) {
       return topicData as String;
@@ -36,11 +43,12 @@ class QuestionsModel {
 
     return QuestionsModel(
       uid: map?['uid'],
+      isImage: map?['isImage'],
       question: map?['question'],
       difficulty: map?['difficulty'],
       choices: choiceslist,
       topicsuid: topicsuidlist,
+      courseuid: map?['courseuid'],
     );
   }
 }
-

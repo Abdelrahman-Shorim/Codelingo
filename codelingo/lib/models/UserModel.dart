@@ -1,22 +1,26 @@
 class UserModel {
+  String uid;
   String name;
-  int age;
+  String usertypeuid;
+  
 
-  UserModel({required this.name, required this.age});
+  UserModel({required this.uid, required this.name, required this.usertypeuid});
 
   // Convert Person object to a map
   Map<String, dynamic> toJson() {
     return {
-      'name': name,
-      'age': age,
+      'uid' : uid,
+      'name' : name,
+      'usertypeuid': usertypeuid,
     };
   }
 
   // Create a Person object from a map
   factory UserModel.fromJson(Map<String, dynamic> map) {
     return UserModel(
+      uid: map['uid'],
       name: map['name'],
-      age: map['age'],
+      usertypeuid: map['usertypeuid'],
     );
   }
 }
