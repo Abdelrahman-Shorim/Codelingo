@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class LevelsForm extends StatefulWidget {
-  const LevelsForm({super.key});
+class UnitLevelForm extends StatefulWidget {
+  const UnitLevelForm({super.key});
 
   @override
-  State<LevelsForm> createState() => _LevelsFormState();
+  State<UnitLevelForm> createState() => _UnitLevelFormState();
 }
 
-class _LevelsFormState extends State<LevelsForm> {
+class _UnitLevelFormState extends State<UnitLevelForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Levels Form",
+          "UnitLevel Form",
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
