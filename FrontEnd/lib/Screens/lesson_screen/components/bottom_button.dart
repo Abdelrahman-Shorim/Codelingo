@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class BottomButton extends StatelessWidget {
   final BuildContext context;
   final String title;
-  const BottomButton(this.context, {required this.title, Key? key}) : super(key: key);
+  const BottomButton(this.context, {required this.title, Key? key, required Null Function() onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

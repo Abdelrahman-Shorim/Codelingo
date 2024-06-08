@@ -5,13 +5,14 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class CourseNode extends StatelessWidget {
   final String name;
-  String? image;
-  Color? color;
-  int? crown;
-  double? percent;
+  final String? image;
+  final Color? color;
+  final int? crown;
+  final double? percent;
+  final bool clickable; 
 
   CourseNode(this.name,
-      {this.image, this.color, this.crown, this.percent, Key? key})
+      {this.image, this.color, this.crown, this.percent, this.clickable = true, Key? key})
       : super(key: key);
 
   @override

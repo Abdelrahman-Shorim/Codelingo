@@ -1,7 +1,8 @@
+import 'package:codelingo/Screens/home_screen/home_screen.dart';
 import 'package:codelingo/Screens/lesson_screen/components/bottom_button.dart';
 import 'package:codelingo/Screens/lesson_screen/components/lesson_app_bar.dart';
 import 'package:codelingo/Screens/lesson_screen/components/list_lesson.dart';
-import 'package:codelingo/Screens/lesson_screen/lesson_complete.dart'; // Import the LessonCompleteScreen
+import 'package:codelingo/Screens/lesson_screen/lesson_complete.dart';
 import 'package:flutter/material.dart';
 
 class LessonScreen extends StatefulWidget {
@@ -44,7 +45,6 @@ class LessonScreenState extends State<LessonScreen> {
       ListLesson(
         'What is the output for this code?',
         'int i=5; \n int y=1 \n int result=i+y; \n cout<<"result = "<<result;',
-
         const ['result = 6', ' result = 5 ', "Can't be determined"],
         correctAnswer: 'result = 6',
         checkButton: bottomButton,
@@ -113,7 +113,17 @@ class LessonScreenState extends State<LessonScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             dialogTitle(title),
-            BottomButton(context, title: 'CONTINUE'),
+            BottomButton(
+              context,
+              title: 'CONTINUE',
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  (route) => false,
+                );
+              },
+            ),
           ],
         ),
       ),
