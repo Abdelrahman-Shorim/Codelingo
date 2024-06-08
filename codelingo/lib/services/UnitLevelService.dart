@@ -6,6 +6,20 @@ class UnitLevelService {
   final CollectionReference _UnitLevelsCollection =
       FirebaseFirestore.instance.collection('UnitLevel');
 
+
+
+      Future<List<UnitLevelModel>> getAllUnitLevelsByUnitId(var unitid) async {
+    try {
+      var querySnapshot = await _UnitLevelsCollection.get();
+      return querySnapshot.docs
+          .map((doc) =>
+              UnitLevelModel.fromJson(doc.data() as Map<String, dynamic>)).where((element) => element.courseunitid==unitid,)
+          .toList();
+    } catch (e) {
+      throw Exception("Failed to get all UnitLevel: $e");
+    }
+  }
+
   Future<void> addUnitLevel({required UnitLevelModel UnitLevel}) async {
     try {
       var uuid = const Uuid().v4();

@@ -2,9 +2,10 @@ class UserModel {
   String uid;
   String name;
   String usertypeuid;
+  String iconurl;
   
 
-  UserModel({required this.uid, required this.name, required this.usertypeuid});
+  UserModel({required this.uid, required this.name, required this.usertypeuid,required this.iconurl});
 
   // Convert Person object to a map
   Map<String, dynamic> toJson() {
@@ -12,6 +13,7 @@ class UserModel {
       'uid' : uid,
       'name' : name,
       'usertypeuid': usertypeuid,
+      'iconurl' : iconurl
     };
   }
 
@@ -21,6 +23,7 @@ class UserModel {
       uid: map['uid'],
       name: map['name'],
       usertypeuid: map['usertypeuid'],
+      iconurl : map['iconurl'],
     );
   }
 }

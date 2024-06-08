@@ -1,11 +1,125 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:codelingo/models/CoursesModel.dart';
+import 'package:codelingo/models/StudentDetailModel.dart';
+import 'package:codelingo/services/StudentDetailService.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:uuid/uuid.dart';
 
 class CoursesService {
   final CollectionReference _CoursessCollection =
       FirebaseFirestore.instance.collection('Courses');
+  final StudentDetailService _studentDetailService = StudentDetailService();
+
+
+  Future<List<StudentDetailModel>> getCourseLeaderboard(var courseuid) async {
+    try {
+      List<StudentDetailModel> students = await _studentDetailService.getAllStudentDetail();
+      
+      List<StudentDetailModel> enrolledStudents = students.where((student) {
+        if (student.enrolledcourses != null) {
+          for (var course in student.enrolledcourses!) {
+            if (course.containsKey(courseuid)) {
+              return true;
+            }
+          }
+        }
+        return false;
+      }).toList();
+
+      return enrolledStudents;
+    } catch (e) {
+      throw Exception("Failed to get students enrolled in course: $e");
+    }
+  }
+
+
+
+  Future<void> enrollStudentCourse(var courseid) async {
+    var currentuserid = FirebaseAuth.instance.currentUser!.uid;
+    try {
+      var student = await _studentDetailService.getStudentDetailById(
+          StudentDetailId: currentuserid);
+      bool courseFound = false;
+
+      if (student?.enrolledcourses != null) {
+        for (var course in student!.enrolledcourses!) {
+          if (course.containsKey(courseid)) {
+            // course[courseid] = courseScore;
+            courseFound = true;
+            break;
+          }
+        }
+      } else {
+        student?.enrolledcourses = [];
+      }
+
+      if (!courseFound) {
+        student?.enrolledcourses!.add({courseid: 0});
+      }
+      await _studentDetailService.updateStudentDetailById(
+          StudentDetailId: student!.uid, StudentDetail: student);
+    } catch (e) {
+      throw Exception("Error enrolling course to student: $e");
+    }
+  }
+
+  Future<void> updateCourseScore(var courseid, int score) async {
+    var currentuserid = FirebaseAuth.instance.currentUser!.uid;
+    try {
+      var student = await _studentDetailService.getStudentDetailById(
+          StudentDetailId: currentuserid);
+      bool courseFound = false;
+
+      if (student?.enrolledcourses != null) {
+        for (var course in student!.enrolledcourses!) {
+          if (course.containsKey(courseid)) {
+            course[courseid] = (course[courseid]! + score);
+            break;
+          }
+        }
+      }
+      await _studentDetailService.updateStudentDetailById(
+          StudentDetailId: student!.uid, StudentDetail: student);
+    } catch (e) {
+      throw Exception("Error enrolling course to student: $e");
+    }
+  }
+
+  Future<List<CoursesModel>> getDoctorCourses(var instructorid) async {
+    try {
+      var querySnapshot = await _CoursessCollection.get();
+      return querySnapshot.docs
+          .map((doc) =>
+              CoursesModel.fromJson(doc.data() as Map<String, dynamic>))
+          .where(
+            (element) => element.instructoruid == instructorid,
+          )
+          .toList();
+    } catch (e) {
+      throw Exception("Failed to get all Coursess: $e");
+    }
+  }
+
+  Future<List<CoursesModel>> getStudentCourses(
+      StudentDetailModel studentdetail) async {
+    List<CoursesModel> courses = [];
+
+    if (studentdetail.enrolledcourses != null) {
+      for (var courseMap in studentdetail.enrolledcourses!) {
+        for (var courseId in courseMap.keys) {
+          try {
+            CoursesModel? course = await getCourseById(CourseId: courseId);
+            if (course != null) {
+              courses.add(course);
+            }
+          } catch (e) {
+            print('Failed to fetch course with ID $courseId: $e');
+          }
+        }
+      }
+    }
+    return courses;
+  }
 
   Future<void> addCourse({required CoursesModel Course}) async {
     try {
@@ -15,8 +129,7 @@ class CoursesService {
       if (currentUser != null) {
         Course.instructoruid = currentUser.uid;
         await _CoursessCollection.doc(uuid).set(Course.toJson());
-      }
-      else {
+      } else {
         throw Exception("error getting current user");
       }
     } catch (e) {
