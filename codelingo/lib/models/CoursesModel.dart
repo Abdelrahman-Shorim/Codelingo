@@ -4,7 +4,7 @@ class CoursesModel {
   String instructoruid;
   String numberofunits;
   String description;
-// add icon if needed
+
 
   CoursesModel(
       {required this.uid,
@@ -13,7 +13,7 @@ class CoursesModel {
       required this.numberofunits,
       required this.description});
 
-  // Convert object to a map
+
   Map<String, dynamic> toJson() {
     return {
       'uid': uid,

@@ -1,3 +1,10 @@
+import 'package:codelingo/firebase_options.dart';
+import 'package:codelingo/models/UserModel.dart';
+import 'package:codelingo/screens/coursesScreen.dart';
+import 'package:codelingo/screens/levelslistscreen.dart';
+import 'package:codelingo/services/UserService.dart';
+import 'package:codelingo/screens/userlistscreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:codelingo/qr_generator/qr.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -20,6 +27,9 @@ class MyApp extends StatelessWidget {
     QrImageView qrImage = generateQrImageFromJson(jsonSample);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      // home: CoursesPage(),
+
       home: Scaffold(
         appBar: AppBar(
           title: Text('QR Code Generator'),
