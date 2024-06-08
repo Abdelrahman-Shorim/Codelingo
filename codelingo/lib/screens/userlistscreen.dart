@@ -3,6 +3,8 @@ import 'package:codelingo/services/UserService.dart';
 import 'package:flutter/material.dart';
 
 class UserListScreen extends StatefulWidget {
+  const UserListScreen({super.key});
+
   @override
   _UserListScreenState createState() => _UserListScreenState();
 }
@@ -16,19 +18,19 @@ class _UserListScreenState extends State<UserListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User List'),
+        title: const Text('User List'),
         actions: [
           IconButton(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             onPressed: _addStaticUserData,
           ),
         ],
       ),
       body: Center(
         child: _isLoading
-            ? CircularProgressIndicator()
+            ? const CircularProgressIndicator()
             : _users.isEmpty
-                ? Text('No users yet')
+                ? const Text('No users yet')
                 : ListView.builder(
                     itemCount: _users.length,
                     itemBuilder: (context, index) {
@@ -42,7 +44,7 @@ class _UserListScreenState extends State<UserListScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _fetchUsers,
-        child: Icon(Icons.refresh),
+        child: const Icon(Icons.refresh),
       ),
     );
   }

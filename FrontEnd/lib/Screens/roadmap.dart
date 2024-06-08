@@ -3,6 +3,8 @@ import 'package:codelingo/Screens/nav.dart';
 import 'package:flutter/material.dart';
 
 class RoadMap extends StatefulWidget {
+  const RoadMap({super.key});
+
   @override
   _RoadMapState createState() => _RoadMapState();
 }
@@ -14,7 +16,7 @@ class _RoadMapState extends State<RoadMap> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Nav(),
+      bottomNavigationBar: const Nav(),
       appBar: const Appbars(),
       body: Column(
         children: [
@@ -27,12 +29,12 @@ class _RoadMapState extends State<RoadMap> {
 
   Widget buildHeader() {
     return Container(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       color: Colors.deepPurple[300],
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
+          const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -46,12 +48,12 @@ class _RoadMapState extends State<RoadMap> {
             ],
           ),
           Container(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.1),
               borderRadius: BorderRadius.circular(8.0),
             ),
-            child: Icon(Icons.list, color: Colors.white),
+            child: const Icon(Icons.list, color: Colors.white),
           ),
         ],
       ),
@@ -62,8 +64,8 @@ class _RoadMapState extends State<RoadMap> {
     return Stack(
       children: [
         ListView(
-          padding: EdgeInsets.only(top: 20),
-          children: [
+          padding: const EdgeInsets.only(top: 20),
+          children: const [
             SizedBox(height: 100),
             // _lesson('images/man.png', Colors.orange[100], 3),
             SizedBox(height: 20),
@@ -93,7 +95,7 @@ class _RoadMapState extends State<RoadMap> {
         child: CircleAvatar(
           radius: 35,
           backgroundColor: tickStates[i] ? Colors.deepPurple[200] : Colors.grey, // Change color based on state
-          child: Icon(Icons.check, color: Colors.white),
+          child: const Icon(Icons.check, color: Colors.white),
         ),
       ),
     ));
@@ -111,7 +113,7 @@ class _RoadMapState extends State<RoadMap> {
           Column(
             children: [
               Image.asset(image, height: 60),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 children: List.generate(3, (index) {
                   return Icon(

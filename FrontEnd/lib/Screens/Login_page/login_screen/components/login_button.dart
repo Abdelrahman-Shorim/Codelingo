@@ -1,5 +1,6 @@
 // import 'package:duolingo/shared/firebase_authentication.dart';
-import 'package:codelingo/Screens/home.dart';
+import 'package:codelingo/Screens/Instructor_view/Home_Screen_Instructor/home.dart';
+import 'package:codelingo/Screens/Select_Course_Screen/Course_Select.dart';
 import 'package:codelingo/Screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:codelingo/Shared/constants.dart';
@@ -34,6 +35,16 @@ class LoginButtonState extends State<LoginButton> {
           margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
           padding: const EdgeInsets.only(bottom: 2),
           child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: logoTextColor,
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            onPressed: (){
+               loginPressed(context);
+            },
             child: const Text(
               'SIGN IN',
               style: TextStyle(
@@ -42,30 +53,34 @@ class LoginButtonState extends State<LoginButton> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            style: ElevatedButton.styleFrom(
-              primary: logoTextColor,
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-            onPressed: (){
-               Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => HomeScreen(),
-
-          ));
-            },
           ),
         ),
       ],
     );
   }
 
-  loginPressed() {
+  loginPressed(BuildContext context) {
     String userId = '';
     String email = widget.emailController.text;
     String password = widget.passwordController.text;
+    if(email=="Dr")
+    {
+      print("Doctor");
+      Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const InstructorViewHome()
+
+          ));
+    }
+    else
+    {
+      Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) =>  CourseSelectTypePage(),
+
+          ));
+    }
+
   //   widget.auth.login(email, password).then((value) {
   //     print('Login Info: ${email} - ${password}');
   //     if (value == null) {

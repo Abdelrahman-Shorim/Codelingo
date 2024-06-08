@@ -35,9 +35,9 @@ class AccountAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget account() {
     return Container(
       margin: const EdgeInsets.only(left: 10, top: 15),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: const [
+        children: [
           Align(
             alignment: Alignment.centerLeft,
             child: Text(

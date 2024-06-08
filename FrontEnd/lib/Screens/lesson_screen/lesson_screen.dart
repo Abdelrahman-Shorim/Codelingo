@@ -1,5 +1,4 @@
 import 'package:codelingo/Screens/lesson_screen/components/bottom_button.dart';
-import 'package:codelingo/Screens/lesson_screen/components/grid_lesson.dart';
 import 'package:codelingo/Screens/lesson_screen/components/lesson_app_bar.dart';
 import 'package:codelingo/Screens/lesson_screen/components/list_lesson.dart';
 import 'package:flutter/material.dart';
@@ -23,21 +22,21 @@ class LessonScreenState extends State<LessonScreen> {
       ListLesson(
         'What is the output?',
         'cout<<"Hello World!";',
-        ['Hello Wrld!.', 'cout<<"Hello World!"', 'Hello World!'],
+        const ['Hello Wrld!.', 'cout<<"Hello World!"', 'Hello World!'],
         correctAnswer: "Hello World!",
         checkButton: bottomButton,
       ),
       ListLesson(
         'What is the datatype of the variable i ? ',
         ' i=20;',
-        ['Int', 'String', 'Char'],
+        const ['Int', 'String', 'Char'],
         correctAnswer: 'Int',
         checkButton: bottomButton,
       ),
       ListLesson(
         'Is this statement True or False',
         'int i="20";',
-        ['True', 'False', 'Neither'],
+        const ['True', 'False', 'Neither'],
         correctAnswer: 'False',
         checkButton: bottomButton,
       ),
@@ -45,7 +44,7 @@ class LessonScreenState extends State<LessonScreen> {
         'What is the output for this code?',
         'int i=5; \n int y=1 \n int result=i+y; \n cout<<"result = "<<result;',
 
-        ['result = 6', ' result = 5 ', "Can't be determined"],
+        const ['result = 6', ' result = 5 ', "Can't be determined"],
         correctAnswer: 'result = 6',
         checkButton: bottomButton,
       ),
@@ -93,19 +92,19 @@ class LessonScreenState extends State<LessonScreen> {
             });
             
           },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF58CC02),
+            elevation: 5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
           child: Text(
             title,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 20,
               fontWeight: FontWeight.bold,
-            ),
-          ),
-          style: ElevatedButton.styleFrom(
-            primary: const Color(0xFF58CC02),
-            elevation: 5,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
             ),
           ),
         ),

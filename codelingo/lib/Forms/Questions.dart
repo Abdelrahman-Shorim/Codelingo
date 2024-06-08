@@ -12,7 +12,7 @@ class _QuestionsFormState extends State<QuestionsForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Questions Form",
           style: TextStyle(color: Colors.black),
         ),
@@ -26,7 +26,7 @@ class _QuestionsFormState extends State<QuestionsForm> {
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Question",
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
                   enabledBorder: UnderlineInputBorder(
@@ -45,7 +45,7 @@ class _QuestionsFormState extends State<QuestionsForm> {
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Choices",
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
                   enabledBorder: UnderlineInputBorder(
@@ -64,7 +64,7 @@ class _QuestionsFormState extends State<QuestionsForm> {
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Difficulty",
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.green),
                   ),
                   enabledBorder: UnderlineInputBorder(
@@ -80,19 +80,19 @@ class _QuestionsFormState extends State<QuestionsForm> {
                 },
                 cursorColor: Colors.green,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               MaterialButton(
                 onPressed: () {},
-                child: Padding(
+                color: Colors.green,
+                child: const Padding(
                   padding: EdgeInsets.all(10),
                   child: Text(
                     "Submit",
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
-                color: Colors.green,
               ),
             ],
           ),

@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FacebookButton extends StatelessWidget {
+  const FacebookButton({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -22,6 +23,12 @@ class FacebookButton extends StatelessWidget {
             //   MaterialPageRoute(builder: (context) => const LoginScreen()),
             // );
           },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            elevation: 5,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -37,12 +44,6 @@ class FacebookButton extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
             ],
-          ),
-          style: ElevatedButton.styleFrom(
-            primary: Colors.white,
-            elevation: 5,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
         ),
       ),

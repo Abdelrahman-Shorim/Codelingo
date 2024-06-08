@@ -1,6 +1,5 @@
 
 
-import 'package:codelingo/Screens/lesson_screen/components/bottom_button.dart';
 import 'package:flutter/material.dart';
 
 class ListLesson extends StatefulWidget {
@@ -10,7 +9,7 @@ class ListLesson extends StatefulWidget {
   final String correctAnswer;
   final Widget Function(BuildContext, String, VoidCallback) checkButton;
 
-  ListLesson(
+  const ListLesson(
     this.instructionText,
     this.question,
     this.answers, {
@@ -173,7 +172,7 @@ class _ListLessonState extends State<ListLesson> {
       child: Container(
         height: 120,
         width: double.infinity,
-        decoration: BoxDecoration(color:Colors.white),
+        decoration: const BoxDecoration(color:Colors.white),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -207,19 +206,19 @@ class _ListLessonState extends State<ListLesson> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child:  Text(correctAnswer!=null?"GOT IT!":"CONTINUE", style:  
-                TextStyle( 
-                          color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                              ),),
               style: ElevatedButton.styleFrom(
                 
-                primary: correctAnswer!=null?Colors.red :Color(0xFF58CC02),
+                backgroundColor: correctAnswer!=null?Colors.red :const Color(0xFF58CC02),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
+              child:  Text(correctAnswer!=null?"GOT IT!":"CONTINUE", style:  
+                const TextStyle( 
+                          color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                              ),),
             ),
           ),
           ],
@@ -238,7 +237,7 @@ class _ListLessonState extends State<ListLesson> {
           style:  TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: correctAnswer!=null?Colors.red:Color(0xFF43C000),
+            color: correctAnswer!=null?Colors.red:const Color(0xFF43C000),
           ),
           child: Text(text),
         ),

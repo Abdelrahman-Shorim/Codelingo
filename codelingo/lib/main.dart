@@ -5,29 +5,39 @@ import 'package:codelingo/screens/levelslistscreen.dart';
 import 'package:codelingo/services/UserService.dart';
 import 'package:codelingo/screens/userlistscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:codelingo/qr_generator/qr.dart';
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(const TestService());
+void main() {
+  runApp(MyApp());
 }
 
-class TestService extends StatefulWidget {
-  const TestService({super.key});
-
-  @override
-  State<TestService> createState() => _TestServiceState();
-}
-
-class _TestServiceState extends State<TestService> {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    String jsonSample = '''
+    {
+      "name": "Lecture 2",
+      "topic": "if",
+      "_link": "wwwS.link_here.comS"
+    }
+    ''';
+
+    QrImageView qrImage = generateQrImageFromJson(jsonSample);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CoursesPage(),
+      // home: CoursesPage(),
+
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('QR Code Generator'),
+        ),
+        body: Center(
+          child: qrImage,
+        ),
+      ),
     );
   }
 }
