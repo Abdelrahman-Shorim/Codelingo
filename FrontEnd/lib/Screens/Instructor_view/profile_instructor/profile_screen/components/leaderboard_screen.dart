@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+
 class LeaderboardScreen extends StatelessWidget {
   const LeaderboardScreen({Key? key}) : super(key: key);
 
@@ -12,67 +13,37 @@ class LeaderboardScreen extends StatelessWidget {
     Random random = Random();
     var xps = List<int>.generate(30, (i) => random.nextInt(1000));
     var nameList = ['Habiba', 'Shehab', 'Mina', 'Abdelrahman', 'Jasmine', 'Ahmed', 'Mohamed', 'Salem'];
-    var imageList = ['avatar1.png', 'avatar35.png', 'avatar2.png', 'avatar41.png', 'avatar7.png'];
+    var imageList = ['avatar1.png', 'avatar35.png', 'avatar2.png',
+      'avatar41.png', 'avatar7.png'];
 
     var names = List<String>.generate(30, (i) => nameList[random.nextInt(nameList.length)]);
     var images = List<String>.generate(30, (i) => 'assets/images/${imageList[random.nextInt(imageList.length)]}');
 
-    return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Leaderboard'),
-      // ),
-      body: Column(
-        children: [
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              'Students Enrolled Leaderboard',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 30,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  contentPadding: const EdgeInsets.only(top: 17),
-                  horizontalTitleGap: 12,
-                  leading: rank(ranks[index]),
-                  title: avatarWithName(images[index], names[index]),
-                  trailing: xpAmountWithLevel(xps[index]),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
+    return ListView.builder(
+      itemCount: 30,
+      itemBuilder: (BuildContext context, int index) {
+        return ListTile(
+          contentPadding: const EdgeInsets.only(top: 17),
+          horizontalTitleGap: 12,
+          leading: rank(ranks[index]),
+          title: avatarWithName(images[index], names[index]),
+          trailing: xpAmount(xps[index]),
+        );
+      },
     );
   }
 
-  Widget xpAmountWithLevel(int xp) {
-    String level = getLevel(xp);
+  xpAmount(int xp) {
     return Container(
       margin: const EdgeInsets.only(right: 15),
       child: Text(
-        '$xp XP\n(Level $level)',
-        textAlign: TextAlign.right,
+        '$xp XP',
         style: const TextStyle(fontSize: 17),
       ),
     );
   }
 
-  String getLevel(int xp) {
-    if (xp < 200) return '1';
-    if (xp < 400) return '2';
-    if (xp < 600) return '3';
-    if (xp < 800) return '4';
-    return '5';
-  }
-
-  Widget avatarWithName(String image, String name) {
+  avatarWithName(String image, String name) {
     return Align(
       alignment: Alignment.centerLeft,
       child: Row(
@@ -85,7 +56,7 @@ class LeaderboardScreen extends StatelessWidget {
     );
   }
 
-  Widget friendName(String name) {
+  friendName(String name) {
     return Text(
       name,
       style: const TextStyle(
@@ -96,8 +67,10 @@ class LeaderboardScreen extends StatelessWidget {
     );
   }
 
-  Widget avatar(String image) {
+  avatar(String image) {
     return Container(
+      // padding: const EdgeInsets.only(top: 5),
+      // margin: const EdgeInsets.only(bottom: 10),
       child: CircleAvatar(
         backgroundImage: AssetImage(image),
         radius: 22,
@@ -105,7 +78,7 @@ class LeaderboardScreen extends StatelessWidget {
     );
   }
 
-  Widget rank(int rank) {
+  rank(int rank) {
     return Container(
       margin: const EdgeInsets.only(left: 15),
       child: Text(
