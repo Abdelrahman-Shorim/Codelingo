@@ -35,7 +35,7 @@ class _UserListScreenState extends State<UserListScreen> {
                       final user = _users[index];
                       return ListTile(
                         title: Text(user.name),
-                        subtitle: Text('Age: ${user.age}'),
+                        subtitle: Text('Age: ${user.name}'),
                       );
                     },
                   ),

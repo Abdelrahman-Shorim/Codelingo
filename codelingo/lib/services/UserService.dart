@@ -1,9 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:codelingo/models/UserModel.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class UserService {
   final CollectionReference _usersCollection =
       FirebaseFirestore.instance.collection('users');
+
+
+
 
   // Add a new user with automatically generated ID
   Future<void> addUser(UserModel user) async {
