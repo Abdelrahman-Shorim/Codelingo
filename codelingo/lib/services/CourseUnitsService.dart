@@ -6,6 +6,19 @@ class CourseUnitsService {
   final CollectionReference _CourseUnitssCollection =
       FirebaseFirestore.instance.collection('CourseUnits');
 
+Future<List<CourseUnitsModel>> getCourseCourseUnits(var courseuid) async {
+    try {
+      var querySnapshot = await _CourseUnitssCollection.get();
+      return querySnapshot.docs
+          .map((doc) =>
+              CourseUnitsModel.fromJson(doc.data() as Map<String, dynamic>)).where((element) => element.courseuid==courseuid,)
+          .toList();
+    } catch (e) {
+      throw Exception("Failed to get all CourseUnits: $e");
+    }
+  }
+
+
   Future<void> addCourseUnit({required CourseUnitsModel CourseUnit}) async {
     try {
       var uuid = const Uuid().v4();

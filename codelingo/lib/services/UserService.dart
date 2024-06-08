@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:codelingo/models/CoursesModel.dart';
 import 'package:codelingo/models/StudentDetailModel.dart';
 import 'package:codelingo/models/UserModel.dart';
+import 'package:codelingo/services/CoursesService.dart';
 import 'package:codelingo/services/StudentDetailService.dart';
 import 'package:codelingo/services/UserTypeService.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,7 +12,6 @@ class UserService {
   final CollectionReference _usersCollection =
       FirebaseFirestore.instance.collection('users');
   final StudentDetailService _studendDetailService = StudentDetailService();
-  final UserService _userService = UserService();
   final UserTypesService _userTypesService = UserTypesService();
 
   Future<User?> signInWithGoogle({String? isSignin}) async {
@@ -105,7 +106,30 @@ class UserService {
           uid: userid,
           name: email,
           usertypeuid: studentType.uid,
+          iconurl: '',
         );
+        await _usersCollection.add(studentdata.toJson());
+      }
+    } catch (e) {
+      throw Exception("Failed to add StudentDetail: $e");
+    }
+  }
+
+  Future<void> addAdmin(var userid, var email) async {
+    try {
+      var allusertypes = await _userTypesService.getAllUserTypes();
+
+      var studentType = allusertypes
+          .firstWhere((usertype) => usertype.type.toLowerCase() == "admin");
+      if (studentType != null) {
+        // Create a UserModel with the user type ID of the "student"
+        UserModel studentdata = UserModel(
+          uid: userid,
+          name: email,
+          usertypeuid: studentType.uid,
+          iconurl: '',
+        );
+        await _usersCollection.add(studentdata.toJson());
       }
     } catch (e) {
       throw Exception("Failed to add StudentDetail: $e");

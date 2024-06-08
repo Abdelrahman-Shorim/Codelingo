@@ -3,10 +3,11 @@ class PowerUpsModel {
   String name;
   String description;
   int price;
+  String iconurl;
 // add icon if needed
 
 
-  PowerUpsModel({ required this.uid, required this.name, required this.description, required this.price});
+  PowerUpsModel({ required this.uid, required this.name, required this.description, required this.price,required this.iconurl});
 
   // Convert object to a map
   Map<String, dynamic> toJson() {
@@ -14,7 +15,8 @@ class PowerUpsModel {
       'uid':uid,
       'name': name,
       'description': description,
-      'price':price
+      'price':price,
+      'iconurl':iconurl
     };
   }
 
@@ -25,6 +27,7 @@ class PowerUpsModel {
       name: map['name'],
       description: map['description'],
       price: map['price'],
+      iconurl: map['iconurl']
     );
   }
 }
