@@ -10,6 +10,8 @@ class StudentDetailModel {
   List<Map<String, int>>? totalsolvedquestions;
   // course : topic
   List<Map<String, String>>? learnedTopics;
+  // course: currentunit/currentlevel
+  List<Map<String, String>>? courselevel;
   String streakcounter;
   DateTime? streakdate;
 
@@ -26,7 +28,8 @@ class StudentDetailModel {
       required this.totalsolvedquestions,
       required this.learnedTopics,
       required this.streakcounter,
-      required this.streakdate});
+      required this.streakdate,
+      required this.courselevel});
 
   // Convert Person object to a map
   Map<String, dynamic> toJson() {
@@ -41,6 +44,7 @@ class StudentDetailModel {
       'learnedTopics': learnedTopics,
       'streakcounter': streakcounter,
       'streakdate': streakdate,
+      'courselevel':courselevel,
     };
   }
 
@@ -67,6 +71,11 @@ class StudentDetailModel {
       return topicData as Map<String, String>;
     }).toList();
 
+    var courselevelData = map?['learnedTopics'] as List<Map<String, String>>;
+    List<Map<String, String>> courselevelList = courselevelData.map((topicData) {
+      return topicData as Map<String, String>;
+    }).toList();
+
 
     return StudentDetailModel(
       uid: map['uid'],
@@ -79,6 +88,7 @@ class StudentDetailModel {
       learnedTopics: learnedTopicsList,
       streakcounter: map['streakcounter'],
       streakdate: map['streakdate'],
+      courselevel: courselevelList,
     );
   }
 }

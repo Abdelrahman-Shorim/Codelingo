@@ -157,14 +157,15 @@ class UserService {
     StudentDetailModel studentdata = new StudentDetailModel(
         uid: userid,
         useruid: userid,
-        enrolledcourses: null,
+        enrolledcourses: [],
         preferedLearningTime: "10",
-        powerups: null,
+        powerups: [],
         pocket: 0,
-        totalsolvedquestions: null,
-        learnedTopics: null,
+        totalsolvedquestions: [],
+        learnedTopics: [],
         streakcounter: "0",
-        streakdate: null);
+        streakdate: null,
+        courselevel: []);
 
     try {
       await _studendDetailService.addStudentDetail(StudentDetail: studentdata);
