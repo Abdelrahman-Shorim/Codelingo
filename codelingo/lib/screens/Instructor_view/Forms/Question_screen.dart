@@ -188,7 +188,7 @@ class _QuestionMakerState extends State<QuestionMaker> {
                   decoration: InputDecoration(
                     hintText: "Answer 2",
                     focusedBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.green),
+                      borderSide: BorderSide(color: Color(0xFF2AE69B)),
                     ),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(

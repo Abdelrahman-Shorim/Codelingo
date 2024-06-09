@@ -55,7 +55,7 @@ class _LevelsFormState extends State<LevelsForm> {
                 decoration: InputDecoration(
                   hintText: "Name",
                   focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.green),
+                    borderSide: BorderSide(color: Color(0xFF2AE69B)),
                   ),
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
@@ -105,7 +105,7 @@ class _LevelsFormState extends State<LevelsForm> {
                 decoration: InputDecoration(
                   hintText: "Select Topic",
                   focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.green),
+                    borderSide: BorderSide(color: Color(0xFF2AE69B)),
                   ),
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
@@ -136,7 +136,7 @@ class _LevelsFormState extends State<LevelsForm> {
                 decoration: InputDecoration(
                   hintText: "Select Course",
                   focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.green),
+                    borderSide: BorderSide(color: Color(0xFF2AE69B)),
                   ),
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
