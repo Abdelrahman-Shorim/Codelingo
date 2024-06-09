@@ -55,14 +55,14 @@ class _TopicsFormState extends State<TopicsForm> {
                 decoration: InputDecoration(
                   hintText: "Name",
                   focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.green),
+                    borderSide: BorderSide(color: Color(0xFF2AE69B)),
                   ),
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
-                        color: Colors.green.withOpacity(0.5), width: 1.0),
+                        color: Color(0xFF2AE69B).withOpacity(0.5), width: 1.0),
                   ),
                 ),
-                cursorColor: Colors.green,
+                cursorColor: Color(0xFF2AE69B),
                 validator: (value) {
                   if (value!.trim().isEmpty) {
                     return "Name required";
@@ -75,11 +75,11 @@ class _TopicsFormState extends State<TopicsForm> {
                 decoration: InputDecoration(
                   hintText: "Description",
                   focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.green),
+                    borderSide: BorderSide(color: Color(0xFF2AE69B)),
                   ),
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
-                        color: Colors.green.withOpacity(0.5), width: 1.0),
+                        color: Color(0xFF2AE69B).withOpacity(0.5), width: 1.0),
                   ),
                 ),
                 validator: (value) {
@@ -88,14 +88,14 @@ class _TopicsFormState extends State<TopicsForm> {
                   }
                   return null;
                 },
-                cursorColor: Colors.green,
+                cursorColor: Color(0xFF2AE69B),
               ),
               const SizedBox(
                 height: 20,
               ),
               MaterialButton(
                 onPressed: _submitForm,
-                color: Colors.green,
+                color: Color(0xFF2AE69B),
                 child: const Padding(
                   padding: EdgeInsets.all(10),
                   child: Text(

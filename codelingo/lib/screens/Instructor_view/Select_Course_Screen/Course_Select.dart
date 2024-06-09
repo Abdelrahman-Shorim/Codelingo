@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:codelingo/Screens/Select_Course_Screen/components/Course_Select_Appbar.dart';
 import 'package:codelingo/Screens/home.dart';
 import 'package:codelingo/Screens/home_screen/home_screen.dart';
@@ -71,6 +72,9 @@ class _CourseSelectPageState extends State<InstructorCourseSelectTypePage> {
                         courseuid=course.uid;
                       });
                     },
+                    onDelete: () {
+                      _deleteCourse(course.uid);
+                    }, cid: course.uid,
                   );
                 }).toList(),
               ),
@@ -122,17 +126,51 @@ class _CourseSelectPageState extends State<InstructorCourseSelectTypePage> {
       ),
     );
   }
+
+  void _deleteCourse(String courseId) async {
+    setState(() {
+      _courseModel.removeWhere((course) => course.uid == courseId);
+    });
+  }
+}
+
+void _deleteData(BuildContext context, String cid, String title) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text('courses deleted.'),
+      action: SnackBarAction(
+        label: 'UNDO',
+        onPressed: () {
+          print('Undo pressed. Deletion cancelled.');
+          FirebaseFirestore.instance
+              .collection('Courses')
+              .doc(cid)
+              .set({'coursename': title});
+        },
+      ),
+      duration: Duration(seconds: 5),
+    ),
+  );
+
+  // Perform deletion
+  FirebaseFirestore.instance.collection('Courses').doc(cid).delete();
 }
 
 class UserTypeCard extends StatelessWidget {
   final String title;
   final bool isSelected;
   final VoidCallback onTap;
+  final VoidCallback onDelete;
+  final CoursesService _service = CoursesService();
+  final String cid;
+
 
   UserTypeCard({
     required this.title,
     required this.isSelected,
     required this.onTap,
+    required this.onDelete,
+    required this.cid,
   });
 
   @override
@@ -158,16 +196,35 @@ class UserTypeCard extends StatelessWidget {
             ),
           ],
         ),
-        child: Center(
-          child: Text(
-            title,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: isSelected ? const Color(0xFF2AE69B) : Colors.black54,
+        child: Stack(
+          children: [
+            Center(
+              child: Text(
+                title,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: isSelected ? const Color(0xFF2AE69B) : Colors.black54,
+                ),
+              ),
             ),
-          ),
+            Positioned(
+              top: 5,
+              right: 5,
+              child: IconButton(
+                icon: Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                ),
+                onPressed: (){_service.deleteCourseById(CourseId: cid.toString());
+                onDelete();
+                
+                }
+,
+              ),
+            ),
+          ],
         ),
       ),
     );
