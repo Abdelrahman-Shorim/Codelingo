@@ -5,7 +5,8 @@ import 'package:codelingo/Screens/Instructor_view/settings_screen_instructor/set
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key});
+  final String courseid; 
+  const SettingsScreen({super.key, required this.courseid});
 
   @override
   State<SettingsScreen> createState() => SettingsScreenState();
@@ -67,7 +68,7 @@ class SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             Container(margin: const EdgeInsets.only(top: 10)),
-            QrCodeGen()
+            QrCodeGen(courseid:widget.courseid)
             
           ],
         ),

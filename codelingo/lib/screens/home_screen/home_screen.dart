@@ -14,7 +14,8 @@ import 'components/profile_app_bar.dart';
 
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final String courseid;
+  const HomeScreen({Key? key,required this.courseid});
 
   @override
   State<StatefulWidget> createState() {
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
 
     final screens = [
-      const Home(), 
+       Home(cid:widget.courseid), 
       const ProfileScreen(),
       const LeaderboardScreen(),
       const ShopScreen(),

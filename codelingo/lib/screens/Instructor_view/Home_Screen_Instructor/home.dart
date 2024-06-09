@@ -32,13 +32,13 @@ class _InstructorViewHomeState extends State<InstructorViewHome> {
     final screens = [
       QuestionMaker( courseid: widget.courseid), 
       const ProfileScreen(),
-      const LevelsForm(),
+      LevelsForm(courseid:widget.courseid),
       const TopicsForm(),
     ];
 
     final List<PreferredSizeWidget> appBars = [
       const StatAppBar(),
-      const ProfileAppBar(),
+       ProfileAppBar(cid:widget.courseid),
       const StatAppBar(),
       const ExploreAppBar(),
     ];

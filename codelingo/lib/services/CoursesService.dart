@@ -63,16 +63,17 @@ class CoursesService {
 
 
 
-  Future<void> enrollStudentCourse(var courseid) async {
-    var currentuserid = FirebaseAuth.instance.currentUser!.uid;
+  Future<void> enrollStudentCourse(String courseid) async {
     try {
+    var currentuserid = await FirebaseAuth.instance.currentUser!.uid;
+    // print("Current user $courseid");
       var student = await _studentDetailService.getStudentDetailById(
           StudentDetailId: currentuserid);
       bool courseFound = false;
-
+      print("im here");
       if (student?.enrolledcourses != null) {
         for (var course in student!.enrolledcourses!) {
-          if (course.containsKey(courseid)) {
+          if (course!.containsKey(courseid)) {
             // course[courseid] = courseScore;
             courseFound = true;
             break;
@@ -102,7 +103,7 @@ class CoursesService {
 
       if (student?.enrolledcourses != null) {
         for (var course in student!.enrolledcourses!) {
-          if (course.containsKey(courseid)) {
+          if (course!.containsKey(courseid)) {
             course[courseid] = (course[courseid]! + score);
             break;
           }
@@ -129,14 +130,16 @@ class CoursesService {
       throw Exception("Failed to get all Coursess: $e");
     }
   }
+ Future<List<CoursesModel>> getStudentCourses() async {
 
-  Future<List<CoursesModel>> getStudentCourses(
-      StudentDetailModel studentdetail) async {
+    var studentid = await FirebaseAuth.instance.currentUser!.uid;
+
+    var studentdetail = await _studentDetailService.getStudentDetailById(StudentDetailId: studentid);
     List<CoursesModel> courses = [];
 
-    if (studentdetail.enrolledcourses != null) {
-      for (var courseMap in studentdetail.enrolledcourses!) {
-        for (var courseId in courseMap.keys) {
+    if (studentdetail?.enrolledcourses != null) {
+      for (var courseMap in studentdetail!.enrolledcourses!) {
+        for (var courseId in courseMap!.keys) {
           try {
             CoursesModel? course = await getCourseById(CourseId: courseId);
             if (course != null) {

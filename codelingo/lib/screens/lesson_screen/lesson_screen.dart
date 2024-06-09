@@ -5,7 +5,8 @@ import 'package:codelingo/Screens/lesson_screen/lesson_complete.dart'; // Import
 import 'package:flutter/material.dart';
 
 class LessonScreen extends StatefulWidget {
-  const LessonScreen({Key? key}) : super(key: key);
+  final String courseid;
+  const LessonScreen({Key? key,required this.courseid}); 
 
   @override
   State<StatefulWidget> createState() {
@@ -77,7 +78,7 @@ class LessonScreenState extends State<LessonScreen> {
               } else {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LessonCompleteScreen()),
+                  MaterialPageRoute(builder: (context) => LessonCompleteScreen(cid:widget.courseid)),
                 );
               }
             });

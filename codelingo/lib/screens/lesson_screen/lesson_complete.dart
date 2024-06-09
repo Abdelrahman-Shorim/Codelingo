@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 
 
 class LessonCompleteScreen extends StatelessWidget {
+  final String cid;
+  const LessonCompleteScreen({super.key,required this.cid});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +49,7 @@ class LessonCompleteScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()), 
+                  MaterialPageRoute(builder: (context) => HomeScreen(courseid: cid,)), 
                   (route) => false,
                 );
               },

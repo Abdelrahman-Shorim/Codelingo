@@ -9,10 +9,11 @@ class CourseNode extends StatelessWidget {
   Color? color;
   int? crown;
   double? percent;
+  final String cid;
 
   CourseNode(this.name,
-      {this.image, this.color, this.crown, this.percent, Key? key})
-      : super(key: key);
+      {this.image, this.color, this.crown, this.percent, Key? key,required this.cid});
+     
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class CourseNode extends StatelessWidget {
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const LessonScreen(),
+                builder: (context) =>  LessonScreen(courseid:cid),
               ),
             );
           },

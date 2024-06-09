@@ -31,15 +31,14 @@ AssetImage _getRandomImage() {
 
 
 class QrCodeGen extends StatelessWidget {
+  final String courseid;
+  const QrCodeGen({super.key,required this.courseid});
+
   @override
   Widget build(BuildContext context) {
     String jsonSample = '''
     {
-      "DoctorID":"12023",
-      "DoctorName":"Dr.Taraagy",
-      "name": "Lecture 2",
-      "topic": "if",
-      "_link": "wwwS.link_here.comS"
+     "CourseId": "$courseid"
     }
     ''';
 

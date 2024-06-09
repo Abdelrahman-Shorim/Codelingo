@@ -1,17 +1,37 @@
 import 'package:codelingo/Screens/Select_Course_Screen/components/Course_Select_Appbar.dart';
 import 'package:codelingo/Screens/home.dart';
 import 'package:codelingo/Screens/home_screen/home_screen.dart';
+import 'package:codelingo/models/CoursesModel.dart';
+import 'package:codelingo/services/CoursesService.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 
 class CourseSelectTypePage extends StatefulWidget {
+
   @override
   _CourseSelectPageState createState() => _CourseSelectPageState();
 }
 
 class _CourseSelectPageState extends State<CourseSelectTypePage> {
-  String selectedUserType = '';
+ String selectedUserType = '';
+  String courseuid='';
+  final CoursesService _coursesService = CoursesService();
+  List<CoursesModel> _courseModel = [];
 
+  @override
+  void initState() {
+    super.initState();
+    _loadCourses();
+  }
+
+  Future<void> _loadCourses() async {
+    List<CoursesModel> courses = await _coursesService.getStudentCourses();
+    setState(() {
+      _courseModel = courses;
+    });
+  }
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,47 +55,27 @@ class _CourseSelectPageState extends State<CourseSelectTypePage> {
               Container(
                 height: 2,
                 width: 50,
-                color:  const Color(0xFF2AE69B),
+                color: const Color(0xFF2AE69B),
               ),
               const SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  UserTypeCard(
-                    iconPath: 'assets/icons/cplus.png',
-                    title: 'C++',
-                    isSelected: selectedUserType == 'C++',
+              Wrap(
+                spacing: 20.0,
+                runSpacing: 20.0,
+                alignment: WrapAlignment.center,
+                children: _courseModel.map((course) {
+                  return UserTypeCard(
+                    title: course.coursename,
+                    isSelected: selectedUserType == course.coursename,
                     onTap: () {
                       setState(() {
-                        selectedUserType = 'C++';
+                        selectedUserType = course.coursename;
+                        courseuid=course.uid;
                       });
                     },
-                  ),
-                  SizedBox(width: 20),
-                  UserTypeCard(
-                    iconPath: 'assets/icons/java.png',
-                    title: 'Java',
-                    isSelected: selectedUserType == 'Java',
-                    onTap: () {
-                      setState(() {
-                        selectedUserType = 'Java';
-                      });
-                    },
-                  ),
-                  SizedBox(width: 20),
-                  UserTypeCard(
-                    iconPath: 'assets/icons/python.png',
-                    title: 'Python',
-                    isSelected: selectedUserType == 'Python',
-                    onTap: () {
-                      setState(() {
-                        selectedUserType = 'Python';
-                      });
-                    },
-                  ),
-                ],
+                  );
+                }).toList(),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -87,32 +87,33 @@ class _CourseSelectPageState extends State<CourseSelectTypePage> {
                       backgroundColor: Colors.grey,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
-                      )
-                    ,
-                  
+                      ),
                     ),
-                    child: Text('Back',
-                     style: TextStyle(
-      color: Colors.white,  // Set the text color to white
-    ),),
-                    
+                    child: const Text(
+                      'Back',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const HomeScreen(),
-
-          ));
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(courseid:courseuid),
+                        ),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF2AE69B),
                       shape: CircleBorder(),
                       padding: EdgeInsets.all(20),
                     ),
-                    child: Icon(Icons.arrow_forward,
-                     color: Colors.white,),
+                    child: const Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                    ),
                   ),
                 ],
               ),
@@ -125,13 +126,11 @@ class _CourseSelectPageState extends State<CourseSelectTypePage> {
 }
 
 class UserTypeCard extends StatelessWidget {
-  final String iconPath;
   final String title;
   final bool isSelected;
   final VoidCallback onTap;
 
   UserTypeCard({
-    required this.iconPath,
     required this.title,
     required this.isSelected,
     required this.onTap,
@@ -145,10 +144,10 @@ class UserTypeCard extends StatelessWidget {
         width: 100,
         height: 120,
         decoration: BoxDecoration(
-          color: isSelected ?  const Color(0xFF2AE69B).withOpacity(0.1) : Colors.white,
+          color: isSelected ? const Color(0xFF2AE69B).withOpacity(0.1) : Colors.white,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: isSelected ?  Color(0xFF2AE69B) : Colors.white,
+            color: isSelected ? const Color(0xFF2AE69B) : Colors.white,
             width: 2,
           ),
           boxShadow: [
@@ -160,25 +159,16 @@ class UserTypeCard extends StatelessWidget {
             ),
           ],
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              iconPath,
-              width: 40,
-              height: 40,
-              
+        child: Center(
+          child: Text(
+            title,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: isSelected ? const Color(0xFF2AE69B) : Colors.black54,
             ),
-            SizedBox(height: 10),
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: isSelected ?  Color(0xFF2AE69B): Colors.black54,
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

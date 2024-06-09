@@ -6,7 +6,8 @@ import 'package:codelingo/screens/Instructor_view/Forms/UnitLevel.dart';
 import 'package:flutter/material.dart';
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const ProfileAppBar({Key? key}) : super(key: key);
+  final String cid;
+  const ProfileAppBar({Key? key, required this.cid}) ;
 
   @override
   Size get preferredSize => const Size.fromHeight(55);
@@ -30,7 +31,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () {
 
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const SettingsScreen())
+              MaterialPageRoute(builder: (context) =>  SettingsScreen(courseid:cid))
             );
 
           },

@@ -4,6 +4,8 @@ import 'components/course_node.dart';
 import 'components/double_course_node.dart';
 
 class CourseTree extends StatelessWidget {
+  final String courseid;
+  
   // const CourseTree({Key? key}) : super(key: key);
 
   // Define a list of colors for unit containers
@@ -21,7 +23,7 @@ class CourseTree extends StatelessWidget {
     Colors.lime,
   ];
 
-  const CourseTree({super.key});
+  const CourseTree({super.key,required this.courseid});
 
   // Build function for each unit
   Widget buildUnit(BuildContext context, String unitName, String unitDescription, List<String> nodeTitles, Color color) {
@@ -58,19 +60,19 @@ class CourseTree extends StatelessWidget {
           ),
         ),
         const Padding(padding: EdgeInsets.all(10)),
-        CourseNode(nodeTitles[0], color: color, crown: 1), // First node title
+        CourseNode(nodeTitles[0], color: color, crown: 1,cid:courseid), // First node title
         const Padding(padding: EdgeInsets.all(10)),
         DoubleCourseNode(
-          CourseNode(nodeTitles[1], image: 'assets/images/hand.png', color: color, percent: 0.5, crown: 1),
-          CourseNode(nodeTitles[2], image: 'assets/images/pen.png', color: color, crown: 2),
+          CourseNode(nodeTitles[1], image: 'assets/images/hand.png', color: color, percent: 0.5, crown: 1,cid:courseid),
+          CourseNode(nodeTitles[2], image: 'assets/images/pen.png', color: color, crown: 2,cid:courseid),
         ),
         const Padding(padding: EdgeInsets.all(10)),
         DoubleCourseNode(
-          CourseNode(nodeTitles[3], image: 'assets/images/fish.png', color: color, percent: 0.2, crown: 3),
-          CourseNode(nodeTitles[4], image: 'assets/images/bucket.png', color: color, crown: 1),
+          CourseNode(nodeTitles[3], image: 'assets/images/fish.png', color: color, percent: 0.2, crown: 3,cid:courseid),
+          CourseNode(nodeTitles[4], image: 'assets/images/bucket.png', color: color, crown: 1,cid:courseid),
         ),
         const Padding(padding: EdgeInsets.all(10)),
-        CourseNode(nodeTitles[5], image: 'assets/images/bandages.png', color: color, crown: 4), // Last node title
+        CourseNode(nodeTitles[5], image: 'assets/images/bandages.png', color: color, crown: 4,cid:courseid), // Last node title
         const Padding(padding: EdgeInsets.all(10)),
         // TripleCourseNode(
         //   CourseNode(nodeTitles[6], image: 'assets/images/heel.png', color: color),
