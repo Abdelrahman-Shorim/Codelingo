@@ -26,6 +26,35 @@ class CoursesService {
         return false;
       }).toList();
 
+
+      enrolledStudents.sort((a, b) {
+      int scoreA = 0;
+      int scoreB = 0;
+
+      // Get the course score for student A
+      if (a.enrolledcourses != null) {
+        for (var course in a.enrolledcourses!) {
+          if (course.containsKey(courseuid)) {
+            scoreA = course[courseuid]!;
+            break;
+          }
+        }
+      }
+
+      // Get the course score for student B
+      if (b.enrolledcourses != null) {
+        for (var course in b.enrolledcourses!) {
+          if (course.containsKey(courseuid)) {
+            scoreB = course[courseuid]!;
+            break;
+          }
+        }
+      }
+
+      // Compare the scores in descending order
+      return scoreB.compareTo(scoreA);
+    });
+
       return enrolledStudents;
     } catch (e) {
       throw Exception("Failed to get students enrolled in course: $e");
@@ -55,6 +84,7 @@ class CoursesService {
 
       if (!courseFound) {
         student?.enrolledcourses!.add({courseid: 0});
+        student?.courselevel!.add({courseid:"1/1"});
       }
       await _studentDetailService.updateStudentDetailById(
           StudentDetailId: student!.uid, StudentDetail: student);

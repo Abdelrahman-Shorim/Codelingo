@@ -9,7 +9,7 @@ class CourseNode extends StatelessWidget {
   final Color? color;
   final int? crown;
   final double? percent;
-  final bool clickable; 
+  final bool clickable;
 
   CourseNode(this.name,
       {this.image, this.color, this.crown, this.percent, this.clickable = true, Key? key})
@@ -19,15 +19,21 @@ class CourseNode extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        GestureDetector(
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const LessonScreen(),
-              ),
-            );
-          },
-          child: node(),
+        // Wrap GestureDetector with IgnorePointer to disable it if clickable is false
+        IgnorePointer(
+          ignoring: !clickable, // Ignore pointer if clickable is false
+          child: GestureDetector(
+            onTap: clickable
+                ? () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const LessonScreen(),
+                      ),
+                    );
+                  }
+                : null, // Set onTap to null if clickable is false
+            child: node(),
+          ),
         ),
         const Padding(padding: EdgeInsets.all(5)),
         courseName(),

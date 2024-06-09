@@ -7,6 +7,15 @@ class StudentDetailService {
   final CollectionReference _StudentDetailsCollection =
       FirebaseFirestore.instance.collection('StudentDetail');
 
+
+
+// increase score
+// increase pocket
+// update finished lessons
+// buy powerups
+// update icon and duration
+
+
   Future<Future<StudentDetailModel?>> getstudentprofile(String userid) async {
     final currentUser = FirebaseAuth.instance.currentUser;
     return  getStudentDetailById(StudentDetailId: currentUser!.uid);

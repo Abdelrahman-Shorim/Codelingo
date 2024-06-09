@@ -1,6 +1,7 @@
 // import 'package:codelingo/qrscanner.dart';
 import 'package:codelingo/screens/Instructor_view/Forms/Course.dart';
 import 'package:flutter/material.dart';
+import 'package:codelingo/screens/Instructor_view/settings_screen_instructor/settings_screen.dart';
 
 class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SettingsAppBar({Key? key}) : super(key: key);
@@ -11,6 +12,7 @@ class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+
       toolbarHeight: 120,
       backgroundColor: Colors.white,
       elevation: 1.5,
@@ -32,7 +34,6 @@ class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
 
           },
         ),
-       ]
-    );
-  }
+    ],);
+}
 }
