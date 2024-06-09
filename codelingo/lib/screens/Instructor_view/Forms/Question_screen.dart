@@ -102,10 +102,11 @@ class _QuestionMakerState extends State<QuestionMaker> {
         'solution': solution,
         'topic': _topicsMap[selectedLesson],
       };
-
-    QuestionsModel question=  QuestionsModel(uid: "", isImage: isimage, question: questionData['question']!, choices: questions, difficulty: "", topicsuid: questionData['topic'] as List<String>, courseuid: widget.courseid);
+    List<String> topic=[questionData['topic'].toString()];
+    print(topic);
+    QuestionsModel question=  QuestionsModel(uid: "", isImage: isimage, question: questionData['question']!, choices: questions, difficulty: "", topicsuid:topic, courseuid: widget.courseid);
       print(widget.courseid);
-//  await _questionsService.addQuestion(questions: question);
+ await _questionsService.addQuestion(questions: question,questionimage: isimage==true?_image:null);
   
   ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Added Question')),
