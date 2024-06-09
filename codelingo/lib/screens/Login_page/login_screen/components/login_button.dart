@@ -2,6 +2,7 @@
 import 'package:codelingo/Screens/Instructor_view/Home_Screen_Instructor/home.dart';
 import 'package:codelingo/Screens/Select_Course_Screen/Course_Select.dart';
 import 'package:codelingo/Screens/home_screen/home_screen.dart';
+import 'package:codelingo/screens/Instructor_view/Select_Course_Screen/Course_Select.dart';
 import 'package:codelingo/services/UserService.dart';
 import 'package:flutter/material.dart';
 import 'package:codelingo/Shared/constants.dart';
@@ -74,7 +75,7 @@ class LoginButtonState extends State<LoginButton> {
               
               Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => const InstructorViewHome()
+              builder: (context) =>  InstructorCourseSelectTypePage()
 
           ));
               }

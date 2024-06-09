@@ -1,4 +1,5 @@
 // import 'package:codelingo/qrscanner.dart';
+import 'package:codelingo/screens/Instructor_view/Forms/Course.dart';
 import 'package:flutter/material.dart';
 
 class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -26,7 +27,7 @@ class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () {
 
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const SettingsScreen())
+              MaterialPageRoute(builder: (context) => const CourseForm())
             );
 
           },

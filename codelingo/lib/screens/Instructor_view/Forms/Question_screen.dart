@@ -1,29 +1,59 @@
+import 'package:codelingo/models/QuestionsModel.dart';
+import 'package:codelingo/models/TopicsModel.dart';
+import 'package:codelingo/services/QuestionsService.dart';
+import 'package:codelingo/services/TopicsService.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 
 class QuestionMaker extends StatefulWidget {
-  const QuestionMaker({super.key});
+
+  final String courseid;
+
+  const QuestionMaker({ required this.courseid,super.key});
+
 
   @override
   _QuestionMakerState createState() => _QuestionMakerState();
 }
 
 class _QuestionMakerState extends State<QuestionMaker> {
-  List<String> lessons = ["Unit 1", "Unit 2", "Unit 3"];
-  String? selectedLesson = "Unit 1";
+  final TopicsService _topicsService = TopicsService();
+  final QuestionsService _questionsService=QuestionsService();
+  final List<TopicsModel> _topicsList = [];
+  final Map<String, String> _topicsMap = {};
+  String? selectedLesson;
   File? _image;
   final ImagePicker picker = ImagePicker();
   final _formKey = GlobalKey<FormState>();
-  
+
   final TextEditingController textQuestionController = TextEditingController();
   final TextEditingController answer1Controller = TextEditingController();
   final TextEditingController answer2Controller = TextEditingController();
   final TextEditingController answer3Controller = TextEditingController();
   final TextEditingController solutionController = TextEditingController();
 
-  Future getImageFromGallery() async {
+  @override
+  void initState() {
+    super.initState();
+    _loadTopics();
+  }
+
+  Future<void> _loadTopics() async {
+    List<TopicsModel> topics = await _topicsService.getAllTopics();
+    setState(() {
+      for (var topic in topics) {
+        _topicsList.add(topic);
+        _topicsMap[topic.name] = topic.uid;
+      }
+      if (_topicsList.isNotEmpty) {
+        selectedLesson = _topicsList.first.name;
+      }
+    });
+  }
+
+  Future<void> getImageFromGallery() async {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
 
     setState(() {
@@ -33,7 +63,7 @@ class _QuestionMakerState extends State<QuestionMaker> {
     });
   }
 
-  Future showOptions() async {
+  Future<void> showOptions() async {
     showCupertinoModalPopup(
       context: context,
       builder: (context) => CupertinoActionSheet(
@@ -50,13 +80,19 @@ class _QuestionMakerState extends State<QuestionMaker> {
     );
   }
 
-  void createQuestion() {
+  Future<void> createQuestion() async {
     if (_formKey.currentState!.validate()) {
       String textQuestion = textQuestionController.text;
       String answer1 = answer1Controller.text;
       String answer2 = answer2Controller.text;
       String answer3 = answer3Controller.text;
       String solution = solutionController.text;
+      bool isimage=_image!=null?true:false;
+      List<Map<String, String>> questions = [
+        {answer1: answer1 == solution ? "100" :"0"},
+        {answer2: answer2 == solution ? "100" : "0"},
+        {answer3: answer3 == solution ? "100" : "0"},
+      ];
 
       var questionData = {
         'question': _image != null ? _image!.path : textQuestion,
@@ -64,11 +100,23 @@ class _QuestionMakerState extends State<QuestionMaker> {
         'answer2': answer2,
         'answer3': answer3,
         'solution': solution,
-        'lesson': selectedLesson,
+        'topic': _topicsMap[selectedLesson],
       };
 
-      print(questionData);
+    QuestionsModel question=  QuestionsModel(uid: "", isImage: isimage, question: questionData['question']!, choices: questions, difficulty: "", topicsuid: questionData['topic'] as List<String>, courseuid: widget.courseid);
+      print(widget.courseid);
+//  await _questionsService.addQuestion(questions: question);
+  
+  ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Added Question')),
+      );
+    }else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Could not add the question')),
+      );
     }
+    
+   
   }
 
   @override
@@ -203,17 +251,17 @@ class _QuestionMakerState extends State<QuestionMaker> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text('Unit', textAlign: TextAlign.left),
+                const Text('Topics', textAlign: TextAlign.left),
                 SizedBox(
                   width: 100,
                   child: DropdownButton<String>(
                       value: selectedLesson,
-                      items: lessons
+                      items: _topicsList
                           .map(
-                            (item) => DropdownMenuItem(
-                              value: item,
+                            (topic) => DropdownMenuItem(
+                              value: topic.name,
                               child: Text(
-                                item,
+                                topic.name,
                                 style: const TextStyle(fontSize: 15),
                               ),
                             ),

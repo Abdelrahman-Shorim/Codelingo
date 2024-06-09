@@ -3,13 +3,16 @@ class UnitLevelModel {
   String courseunitid;
   String levelname;
   List<String> leveltopics;
+  int ordernumber;
 // add icon if needed
 
   UnitLevelModel(
       {required this.uid,
       required this.courseunitid,
       required this.levelname,
-      required this.leveltopics});
+      required this.leveltopics,
+      required this.ordernumber,
+      });
 
   // Convert object to a map
   Map<String, dynamic> toJson() {
@@ -18,6 +21,7 @@ class UnitLevelModel {
       'courseunitid': courseunitid,
       'levelname': levelname,
       'leveltopics': leveltopics,
+      'ordernumber': ordernumber,
     };
   }
 
@@ -33,6 +37,7 @@ class UnitLevelModel {
       courseunitid: data['courseunitid'],
       levelname: data['levelname'],
       leveltopics: leveltopicsList,
+      ordernumber: data['ordernumber'],
     );
   }
 }

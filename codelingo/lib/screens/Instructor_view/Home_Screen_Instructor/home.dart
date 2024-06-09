@@ -1,6 +1,3 @@
-
-
-
 import 'package:codelingo/Screens/Instructor_view/Forms/Levels.dart';
 import 'package:codelingo/Screens/Instructor_view/Forms/Question_screen.dart';
 import 'package:codelingo/Screens/Instructor_view/Home_Screen_Instructor/components/bottom_navigator.dart';
@@ -8,12 +5,16 @@ import 'package:codelingo/Screens/Instructor_view/Home_Screen_Instructor/compone
 import 'package:codelingo/Screens/Instructor_view/Home_Screen_Instructor/components/profile_app_bar.dart';
 import 'package:codelingo/Screens/Instructor_view/Home_Screen_Instructor/components/stat_app_bar.dart';
 import 'package:codelingo/Screens/Instructor_view/profile_instructor/profile_screen/profile_screen.dart';
-import 'package:codelingo/Screens/explore_screen/explore_screen.dart';
+// import 'package:codelingo/Screens/explore_screen/explore_screen.dart';
 import 'package:codelingo/screens/Instructor_view/Forms/Topics.dart';
 import 'package:flutter/material.dart';
 
 class InstructorViewHome extends StatefulWidget {
-  const InstructorViewHome({Key? key}) : super(key: key);
+
+  final String courseid;
+
+  const InstructorViewHome({required this.courseid,super.key});
+
 
   @override
   State<StatefulWidget> createState() {
@@ -29,7 +30,7 @@ class _InstructorViewHomeState extends State<InstructorViewHome> {
   Widget build(BuildContext context) {
 
     final screens = [
-      const QuestionMaker(), 
+      QuestionMaker( courseid: widget.courseid), 
       const ProfileScreen(),
       const LevelsForm(),
       const TopicsForm(),

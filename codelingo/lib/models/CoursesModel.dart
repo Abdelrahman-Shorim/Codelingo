@@ -21,6 +21,7 @@ class CoursesModel {
       'instructoruid': instructoruid,
       'numberofunits': numberofunits,
       'description': description,
+ 
     };
   }
 
@@ -32,6 +33,7 @@ class CoursesModel {
       instructoruid: data['instructoruid'],
       numberofunits: data['numberofunits'],
       description: data['description'],
+     
     );
   }
 }

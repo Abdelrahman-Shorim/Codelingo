@@ -121,7 +121,7 @@ class CoursesService {
     return courses;
   }
 
-  Future<void> addCourse({required CoursesModel Course}) async {
+  Future<String> addCourse({required CoursesModel Course}) async {
     try {
       var uuid = const Uuid().v4();
       Course.uid = uuid;
@@ -129,6 +129,7 @@ class CoursesService {
       if (currentUser != null) {
         Course.instructoruid = currentUser.uid;
         await _CoursessCollection.doc(uuid).set(Course.toJson());
+        return uuid;
       } else {
         throw Exception("error getting current user");
       }

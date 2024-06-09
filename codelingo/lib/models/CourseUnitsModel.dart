@@ -4,6 +4,7 @@ class CourseUnitsModel {
   String unitname;
   String numberoflevels;
   String description;
+  int ordernumber;
 // add icon if needed
 
   CourseUnitsModel(
@@ -11,7 +12,9 @@ class CourseUnitsModel {
       required this.courseuid,
       required this.unitname,
       required this.numberoflevels,
-      required this.description});
+      required this.description,
+      required this.ordernumber,
+      });
 
   // Convert object to a map
   Map<String, dynamic> toJson() {
@@ -21,6 +24,7 @@ class CourseUnitsModel {
       'unitname': unitname,
       'numberoflevels': numberoflevels,
       'description': description,
+      'ordernumber': ordernumber,
     };
   }
 
@@ -32,6 +36,7 @@ class CourseUnitsModel {
       unitname: data['unitname'],
       numberoflevels: data['numberoflevels'],
       description: data['description'],
+      ordernumber: data['ordernumber'],
     );
   }
 }
