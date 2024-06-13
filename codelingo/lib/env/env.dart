@@ -11,4 +11,8 @@ abstract class Env {
   static final String openaiApiKey = _Env.openaiApiKey;
 }
  
-//dart run build_runner build --delete-conflicting-outputs
+// dart run build_runner build               // --delete-conflicting-outputs
+
+// flutter pub add envied
+// flutter pub add --dev envied_generator
+// flutter pub add --dev build_runner
